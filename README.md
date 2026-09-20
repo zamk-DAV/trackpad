@@ -49,6 +49,6 @@ Flicklane(플릭레인)은 직접 녹화한 제스처, 키 입력 순서, 단축
 
 문제나 아이디어는 [Issues](https://github.com/zamk-DAV/trackpad/issues)로 알려주세요. 오류 제보 시 Mac 모델과 macOS 빌드, 재현 순서를 함께 적어주시면 도움이 됩니다.
 
-개발을 응원하고 싶다면 [후원 안내](SPONSORING.md)를 확인해 주세요. 현재 후원 채널을 준비 중입니다.
+개발을 응원하고 싶다면 [Buy Me a Coffee에서 후원](https://buymeacoffee.com/flicklane)할 수 있습니다. 후원은 선택 사항이며, 한국어·영어 설명은 [후원 안내](SPONSORING.md)에서 확인할 수 있습니다.
 
 입력 인식과 규칙 저장은 Mac에서 처리합니다. 필요한 권한과 데이터 보관 방식은 [개인정보 안내](PRIVACY.md)에 정리했습니다.
