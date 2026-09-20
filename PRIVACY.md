@@ -1,5 +1,7 @@
 # 개인정보 및 권한 안내
 
+**한국어** · [English](PRIVACY.en.md)
+
 Flicklane의 입력 인식과 규칙 저장은 사용자의 Mac에서 처리합니다.
 
 ## 권한

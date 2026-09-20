@@ -1,28 +1,28 @@
-name: 오류 제보
-description: 작동하지 않거나 예상과 다르게 동작하는 부분을 알려주세요.
-title: "[오류] "
+name: 오류 제보 / Bug report
+description: 작동 문제를 알려주세요. / Tell us what is not working.
+title: "[Bug] "
 body:
   - type: markdown
     attributes:
-      value: "개인정보, 암호, 설정 파일 전체는 첨부하지 마세요."
+      value: "한국어·영어 모두 환영합니다. 개인정보, 암호, 설정 파일 전체는 첨부하지 마세요. / Korean and English are welcome. Do not include personal information, passwords, or complete settings files."
   - type: input
     id: environment
     attributes:
-      label: 사용 환경
-      description: Mac 모델, macOS 버전과 빌드, Flicklane 버전을 적어주세요.
-      placeholder: "MacBook Air M2 / macOS 빌드 25G83 / Flicklane 버전"
+      label: 사용 환경 / Environment
+      description: Mac 모델, macOS 버전·빌드, 앱 버전 / Mac model, macOS version and build, Flicklane version
+      placeholder: "MacBook Air M2 / macOS 26.6.2 (25G83) / Flicklane 0.1.0 (19)"
     validations:
       required: true
   - type: textarea
     id: steps
     attributes:
-      label: 재현 순서
-      description: 선택한 기능과 입력 순서를 알려주세요.
+      label: 재현 순서 / Steps to reproduce
+      description: 선택한 기능과 입력 순서 / The feature and input sequence you used
     validations:
       required: true
   - type: textarea
     id: result
     attributes:
-      label: 예상한 동작과 실제 결과
+      label: 예상한 동작과 실제 결과 / Expected and actual behavior
     validations:
       required: true
