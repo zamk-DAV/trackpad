@@ -29,11 +29,13 @@ Flicklane(플릭레인)은 직접 녹화한 제스처, 키 입력 순서, 단축
 
 ## 다운로드
 
-**0.1.0 첫 공개 베타를 준비 중입니다. 현재 다운로드할 수 있는 설치 파일은 없습니다.**
+**첫 공개 베타: 0.1.0 Beta 1 · 빌드 19 · Apple silicon**
 
-외부 배포용 Developer ID 서명·Apple 공증 및 다른 Mac에서의 설치 확인을 마친 뒤 [Releases](https://github.com/zamk-DAV/trackpad/releases)에 앱과 SHA-256 체크섬을 게시합니다. 이 저장소를 미리 공유하거나 GitHub **Watch → Custom → Releases**로 공개 소식을 받을 수 있습니다.
+[**Flicklane 다운로드 (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.0-beta.1/Flicklane-0.1.0-19-arm64.zip) · [릴리스 안내·체크섬](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.0-beta.1)
 
-현재 기능과 지원 범위는 아래에서 확인하고, 설치 파일이 공개되면 [설치 안내](docs/installation.md)를 따라주세요.
+Developer ID 서명과 Apple 공증을 완료했으며, 최종 ZIP을 다시 풀어 서명·공증 티켓·Gatekeeper 검사를 통과했습니다. **초기 베타로, 다른 Mac 모델에서의 동작 검증은 진행 중입니다.** 지원 범위를 확인한 뒤 [설치 안내](docs/installation.md)를 따라주세요.
+
+새 버전 소식은 GitHub **Watch → Custom → Releases**에서 받을 수 있습니다.
 
 ## 지원 범위
 

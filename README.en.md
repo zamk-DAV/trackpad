@@ -27,13 +27,15 @@ This repository hosts **downloads, documentation, and feedback**. The applicatio
 | Languages | Follow the system language or select Korean, English, Japanese, Simplified Chinese, or Traditional Chinese. |
 | Menu bar access | ♥ Support, ⚙ Settings, and ⏻ Quit. Settings brings up the main app window. |
 
-## Download status
+## Download
 
-**The first public 0.1.0 beta is being prepared. No installer is available yet.**
+**First public beta: 0.1.0 Beta 1 · build 19 · Apple silicon**
 
-The app and its SHA-256 checksum will be published in [Releases](https://github.com/zamk-DAV/trackpad/releases) after Developer ID signing, Apple notarization, and installation checks on another Mac. You can share this repository now or select **Watch → Custom → Releases** on GitHub for release notifications.
+[**Download Flicklane (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.0-beta.1/Flicklane-0.1.0-19-arm64.zip) · [Release notes and checksum](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.0-beta.1)
 
-See the [installation guide](docs/installation.en.md) when the download becomes available.
+The app is Developer ID-signed and notarized by Apple. The app extracted from the final ZIP passed signature, notarization-ticket, and Gatekeeper checks. **This is an early beta; validation on other Mac models is still in progress.** Check compatibility, then follow the [installation guide](docs/installation.en.md).
+
+Select **Watch → Custom → Releases** on GitHub for new release notifications.
 
 ## Compatibility
 

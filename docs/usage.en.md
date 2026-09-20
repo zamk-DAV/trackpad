@@ -2,7 +2,7 @@
 
 [한국어](usage.md) · **English**
 
-This guide describes the current development build of Flicklane. A public installer is not available yet.
+This guide covers Flicklane 0.1.0 Beta 1. Start with the [installation guide](installation.en.md) to check compatibility and permissions.
 
 ## Trackpad gestures
 
