@@ -1,0 +1,14 @@
+.DS_Store
+.build/
+dist/
+.swiftpm/
+.env
+.env.*
+*.p12
+*.p8
+*.key
+configuration*.json
+.probe-captures/
+.worktrees/
+.superpowers/
+graft/

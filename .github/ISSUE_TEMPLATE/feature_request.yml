@@ -1,0 +1,16 @@
+name: 기능 제안
+description: 더 편하게 사용하기 위한 아이디어를 남겨주세요.
+title: "[제안] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 어떤 상황에서 필요한가요?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: 원하는 동작이나 개선안
+    validations:
+      required: true

@@ -1,0 +1,28 @@
+name: 오류 제보
+description: 작동하지 않거나 예상과 다르게 동작하는 부분을 알려주세요.
+title: "[오류] "
+body:
+  - type: markdown
+    attributes:
+      value: "개인정보, 암호, 설정 파일 전체는 첨부하지 마세요."
+  - type: input
+    id: environment
+    attributes:
+      label: 사용 환경
+      description: Mac 모델, macOS 버전과 빌드, Flicklane 버전을 적어주세요.
+      placeholder: "MacBook Air M2 / macOS 빌드 25G83 / Flicklane 버전"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 순서
+      description: 선택한 기능과 입력 순서를 알려주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: 예상한 동작과 실제 결과
+    validations:
+      required: true
