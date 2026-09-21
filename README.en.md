@@ -6,23 +6,43 @@
 
 [한국어](README.md) · **English**
 
-**Connect your Mac’s trackpad gestures and keyboard input to the actions you use every day.**
+**Trackpad gestures, keyboard macros, window tiling, and a Quick Menu beside your cursor.**
 
-[**Download Flicklane (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.3-beta.1/Flicklane-0.1.3-22-universal.zip) · **0.1.3 Beta 1 · build 22 · Apple silicon + Intel**
+Flicklane connects everyday Mac actions to the way you work. Record a gesture or choose a key sequence to copy, paste, capture the screen, open an app, and more.
 
-[Installation](docs/installation.en.md) · [User guide](docs/usage.en.md) · [Release notes](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.3-beta.1) · [Report an issue](https://github.com/zamk-DAV/trackpad/issues) · [♥ Support](https://buymeacoffee.com/flicklane)
+[**Download Flicklane 0.1.3 Beta 1 (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.3-beta.1/Flicklane-0.1.3-22-universal.zip) · **build 22 · Apple silicon + Intel**
 
-Flicklane is a macOS app for recorded gestures, keyboard sequences, shortcuts, and window tiling. This repository hosts downloads and documentation. The application source code is not published here.
+Developer ID signed and Apple notarized · Targets macOS 14 / 15 / 26 · Korean, English, Japanese, Simplified Chinese, and Traditional Chinese
 
-![Flicklane rules and features](assets/flicklane-overview.png)
+[Installation](docs/installation.en.md) · [User guide](docs/usage.en.md) · [Changelog](CHANGELOG.md) · [Report an issue](https://github.com/zamk-DAV/trackpad/issues) · [♥ Support](SPONSORING.md)
 
-*Actual app UI with example settings, input monitoring and action execution disabled. These images do not demonstrate physical trackpad testing.*
+## What is new in this release
+
+- **Quick Menu:** Assign actions to 4, 5, 8, or 9 positions. Hold a key, move the pointer, and release to select. Menus opened by a rule use clicks.
+- **Fn / 🌐 activation:** Available for Quick Menu and Window Layout. Use different activation keys for the two features.
+- **Capture cancellation:** Escape during capture stops subsequent actions, fixing the case where cancelling a capture could paste older clipboard content.
+- **Text and diagnostics:** Fixed emoji and supplementary characters in long text input, and added Screen Recording permission status to diagnostics.
+
+[Full 0.1.3 Beta 1 release notes and verification](docs/releases/0.1.3-beta.1.md)
+
+## Four ways to work
+
+| Feature | How to use it |
+| --- | --- |
+| [Trackpad gestures](docs/usage.en.md#trackpad-gestures) | Choose a built-in gesture or record touches, taps, and movements. Adjust the time between touches and movement duration separately. |
+| [Keyboard macros](docs/usage.en.md#keyboard-macros) | Use a released-key sequence, such as Q then W, or a combination such as Shift + 1. Set the maximum interval for a sequence from 0.01 to 5 seconds. |
+| [Window Layout](docs/usage.en.md#window-tiling) | Hold a key and move the pointer to place the active window in a half, quarter, or the full desktop area. |
+| [Quick Menu](docs/usage.en.md#quick-menu) | Choose frequently used actions beside the cursor. Customize each position's title and action, and preview without executing actions. |
+
+Chain multiple actions and choose which apps a rule applies to. Start with **Fast / Default / Relaxed** keyboard timing or **As recorded / A little extra / More extra time** gesture timing, then fine-tune it.
 
 ## Get started in three steps
 
-1. Download and unzip the app above.
-2. Move `Flicklane.app` to **Applications** and open it. Quit the existing app before updating.
-3. Grant the permissions you need and create your first rule. If prompted to check input, **place two fingers on the trackpad briefly, then lift both fingers.**
+1. Download and unzip the app, then move `Flicklane.app` to **Applications** and open it. Quit the previous app before updating.
+2. Grant permissions for the features you use. If prompted to validate input, **place two fingers briefly, then lift both.**
+3. Choose a feature at the top. For gesture and keyboard rules, set the input and actions, test, then enable the rule. Configure activation keys in the Window Layout and Quick Menu tabs.
+
+To start with Quick Menu, choose **Quick Menu → a position → Change action → Preview menu**, then turn on **Enable Quick Menu**. [Layouts and Fn activation](docs/usage.en.md#quick-menu)
 
 ## Compatibility
 
@@ -40,29 +60,14 @@ For a new compatibility environment or an external trackpad, connected actions r
 
 [Release artifact checks](https://github.com/zamk-DAV/trackpad/actions/workflows/compatibility.yml) cover checksums, signing, notarization, resources, and executable structure on macOS 14 Apple silicon and macOS 15/26 Apple silicon and Intel. **0.1.3 Beta 1 [passed all five environments](https://github.com/zamk-DAV/trackpad/actions/runs/35592903489).** macOS 14 Intel is outside this CI matrix. These checks do not exercise gestures, permissions, Bluetooth, or wake behavior.
 
-## Features
+## Updates and help
 
-| Feature | How it works |
-| --- | --- |
-| Trackpad gestures | Choose a built-in gesture or record your own touches, taps, and movements. |
-| Timing controls | Start with **Fast / Default / Relaxed** for keyboard sequences or **As recorded / A little extra / More extra time** for recorded gestures, then adjust the details. |
-| Keyboard macros | Connect sequences of released keys or modifier-key combinations to actions. |
-| Window tiling | Hold a key and move the pointer to place a window in a half, quarter, or the full desktop area. |
-| Quick Menu | Assign actions to 4, 5, 8, or 9 positions, then open the menu with a key or rule. Fn / 🌐 is available as an activation key. |
-| Multiple actions | Chain opening apps or websites, managing windows, and entering keys or text. |
-| Per-app rules | Choose target apps, test recognition and execution, then enable the rule. |
-| Settings and help | Choose a language, check for updates manually, and copy diagnostics for a support report. |
+Use the gear button at the top right of the main window, then **Check for Updates**. Download and replace the app yourself. In the menu bar, **⚙ Settings** opens the main window and **⏻ Quit** exits the app.
 
-![Using Flicklane](assets/flicklane-demo.gif)
+For capture problems, check **Input Status and Permissions → Screen Recording**. If Fn also opens emoji, or Quick Menu conflicts with Window Layout, see [troubleshooting](docs/usage.en.md#troubleshooting).
 
-*An 11-second loop: rules → Fast and Relaxed keyboard timing → permission guidance. It uses example settings without live input or action execution.*
+Report the feature, steps, and expected result in [Issues](https://github.com/zamk-DAV/trackpad/issues). **Preview Diagnostics → Copy Diagnostics** includes only version, environment, permission, and input-status fields. Nothing is sent automatically. [Privacy](PRIVACY.en.md)
 
-Flicklane supports Korean, English, Japanese, Simplified Chinese, and Traditional Chinese. See the [user guide](docs/usage.en.md) for recording and timing, or [installation](docs/installation.en.md) to repair permissions.
+This repository publishes **app downloads and documentation**. The app source code is not public. [♥ Supporting development](https://buymeacoffee.com/flicklane) is optional.
 
-## Updates and feedback
-
-Select **Check for Updates** in app settings to look for new GitHub releases. Download and replace the app yourself. You can also select **Watch → Custom → Releases** on GitHub for release notifications.
-
-Report problems through [Issues](https://github.com/zamk-DAV/trackpad/issues), including steps to reproduce. **Preview Diagnostics → Copy Diagnostics** in settings copies a limited set of technical details. Input recognition and rule storage run locally. The [privacy guide](PRIVACY.en.md) explains update requests and diagnostic contents.
-
-[♥ Supporting development](https://buymeacoffee.com/flicklane) is optional. [Support details](SPONSORING.md) · [Share Flicklane](docs/share.md)
+[Share Flicklane in Korean or English](docs/share.md) · [Earlier UI media](docs/media.md) · [All releases](https://github.com/zamk-DAV/trackpad/releases)

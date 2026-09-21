@@ -4,6 +4,8 @@
 
 [**Download Flicklane 0.1.3 Beta 1**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.3-beta.1/Flicklane-0.1.3-22-universal.zip) · build 22 · Apple silicon + Intel
 
+This release is Developer ID signed and Apple notarized. [Changelog](../CHANGELOG.md)
+
 ## Install in three steps
 
 1. Download and unzip the app.
@@ -24,10 +26,6 @@ The input check completes after two-finger contact and lifting all fingers. Conn
 
 ## Permissions
 
-![Flicklane permission screen](../assets/flicklane-permissions.png)
-
-*Actual app UI with example settings, input monitoring and action execution disabled. These images do not demonstrate physical trackpad testing.*
-
 - **Input Monitoring:** Detect trackpad and keyboard input.
 - **Accessibility:** Window, keyboard, and mouse actions.
 - **Screen Recording:** Screenshots. View the current grant and open System Settings from **Input Status and Permissions → Screen Recording** in Flicklane.
@@ -39,7 +37,7 @@ See the [privacy guide](../PRIVACY.en.md) for details.
 
 Select **Open Screen Recording Settings** in Flicklane. Depending on macOS, the pane is named **Screen Recording** or **Screen & System Audio Recording**. If Flicklane is missing, press `+`, add `/Applications/Flicklane.app`, allow access, and reopen the app.
 
-Region and window selection, and the system capture toolbar, no longer stop after 30 seconds. Pressing Esc during region or window capture is reported as cancellation.
+Region and window selection, and the system capture toolbar, no longer stop after 30 seconds. Pressing Esc during region or window capture is reported as cancellation and stops later actions in the same execution. Completed actions are not undone.
 
 ### If permission is allowed but not detected
 
@@ -54,6 +52,10 @@ You do not need to delete settings or backups. Do not run the former GestureForg
 ## Updates
 
 Select **Check for Updates** in settings to query GitHub releases. If a new version is available, download it from the linked release page, quit Flicklane, and replace the app. Flicklane does not install updates automatically or upload your settings.
+
+Quit with **⏻ Quit** in the menu bar, replace the app, and reopen it from **Applications**. Confirm that **Current Version** in settings is `0.1.3 (22)`. Avoid running an older copy from Downloads at the same time.
+
+Replacing the app does not reset rules, recordings, Quick Menu, Window Layout, or language settings. Rules and app preferences use separate storage, so `configuration.json` alone is not a complete settings backup. [Settings storage](../PRIVACY.en.md#local-settings)
 
 Rules and recorded gestures retain their existing storage location. Earlier betas remain listed under [all releases](https://github.com/zamk-DAV/trackpad/releases).
 
@@ -70,4 +72,4 @@ Check that the ZIP is reported as `OK`.
 
 </details>
 
-[User guide](usage.en.md) · [Home](../README.en.md)
+[Quick Menu and Fn](usage.en.md#quick-menu) · [Troubleshooting](usage.en.md#troubleshooting) · [Home](../README.en.md)

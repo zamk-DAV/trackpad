@@ -2,7 +2,9 @@
 
 [한국어](usage.md) · **English**
 
-This guide covers Flicklane 0.1.3 Beta 1. Start with the [installation guide](installation.en.md) to check compatibility and permissions.
+This guide covers **Flicklane 0.1.3 Beta 1 · build 22**. Start with the [installation guide](installation.en.md) to check compatibility and permissions.
+
+[Trackpad](#trackpad-gestures) · [Keyboard](#keyboard-macros) · [Quick Menu](#quick-menu) · [Window Layout](#window-tiling) · [Troubleshooting](#troubleshooting)
 
 ## Trackpad gestures
 
@@ -48,13 +50,40 @@ Key input also reaches the app you are using. Choose combinations that do not co
 
 ## Quick Menu
 
-Choose 4, 5, 8, or 9 positions in the Quick Menu tab and assign an action to each position. Enable and choose a dedicated key, or add the Quick Menu action to a rule. Fn / 🌐 is supported as an activation key.
+Open the fourth feature tab, **Quick Menu**, at the top of the main window. Changes are saved as you make them.
 
-For a dedicated-key menu, hold the key, move the pointer, and release to select. For a rule-opened menu, click an item. Escape or switching apps cancels the menu. Window tiling takes priority when both features use the same key, so select different activation keys.
+1. Choose a layout with 4, 5, 8, or 9 positions.
+2. Click a position in the circular layout and select **Change action**. Complete any required parameters, such as the target app for an Open App action.
+3. Enter a custom display title, or leave it blank to use the action name.
+4. Use **Preview menu** to try selecting an item. Preview selections do not execute actions.
+5. Turn on **Enable Quick Menu** and choose an **Activation key**. Select Fn / 🌐, Control, Option, Shift, or Command, or use **Specify another key**. A new configuration starts with dedicated-key activation off and Control selected.
+
+| Layout | Available positions | Releasing the key at the center |
+| --- | --- | --- |
+| 4 | Up, down, left, right | Cancels |
+| 5 | Four directions + center | Runs the center action |
+| 8 | Four directions + diagonals | Cancels |
+| 9 | Eight directions + center | Runs the center action |
+
+Switching layouts preserves the titles and actions of hidden positions. For example, switching from 9 to 4 and back restores your diagonal and center assignments.
+
+### Open with a key or a rule
+
+- **Activation key:** In the app you want to work with, hold the key, move toward an item, and release. With 5 or 9 positions, releasing without moving can run the center action; check its assignment first.
+- **Trackpad or keyboard rule:** Add **Open Quick Menu** to the rule's actions. Choose an item by clicking. This route works without enabling the dedicated activation key.
+- **Cancel:** Press Escape or switch to another app. Clicking, dragging, or scrolling also cancels a menu opened by holding a key.
+
+The chosen action targets the app that was active when the menu opened and uses that action's permission and confirmation requirements. Nesting **Open Quick Menu** inside another Quick Menu item is not supported.
+
+### Fn and activation-key conflicts
+
+**Window Layout takes priority** if both features use the same activation key. For example, use Fn for Quick Menu and Option for Window Layout. Ordinary character keys also reach the app you are using.
+
+Fn is different from a function key such as F1. macOS may also open emoji or change input sources when Fn / 🌐 is pressed. To stop that behavior, choose **System Settings → Keyboard → Press fn / 🌐 key to → Do Nothing**. Flicklane does not change this system preference automatically. [Apple keyboard settings](https://support.apple.com/guide/mac-help/keyboard-settings-kbdm162/mac)
 
 ## Window tiling
 
-Enable window tiling and choose its trigger key. Select the window, hold the key, move the pointer, then release the key.
+In **Window Layout**, enable the feature and choose Fn / 🌐, a modifier, or another activation key. Select the window, hold the key, move the pointer, then release the key.
 
 - Center: maximize within the current desktop.
 - Up, down, left, or right: half of the screen.
@@ -70,14 +99,10 @@ Recognition-only testing does not execute actions. An action test runs the actio
 
 ## Settings, updates, and diagnostics
 
-![Flicklane settings](../assets/flicklane-settings.png)
-
-*Actual app UI with example settings, input monitoring and action execution disabled. These images do not demonstrate physical trackpad testing.*
-
 Open settings with the gear button at the top right of the main window.
 
 - **Check for Updates:** Queries GitHub releases only when you press the button. Download a new version from the linked release page. Updates are not installed automatically.
-- **Preview Diagnostics → Copy Diagnostics:** Review the app version, macOS version/build, CPU architecture, Mac model, language, permissions, and input status before copying them to the clipboard. Rules, input history, and file paths are excluded. Nothing is sent automatically.
+- **Preview Diagnostics → Copy Diagnostics:** Review the app version, macOS version/build, CPU architecture, Mac model, language, Input Monitoring/Accessibility/Screen Recording permissions, and trackpad input status before copying them to the clipboard. Rules, input history, and file paths are excluded. Nothing is sent automatically.
 
 If an update check fails, check your internet connection and try again. If GitHub limits requests, wait before retrying. Report problems in [Issues](https://github.com/zamk-DAV/trackpad/issues) with steps to reproduce.
 
@@ -95,6 +120,20 @@ The Flicklane menu bar icon contains three items:
 
 Cancelling a region/window capture with Escape, or declining an action confirmation, stops the remaining actions in that execution. Completed actions are not undone. Explicit cancellation takes precedence over the continue-after-error setting.
 
-Text input preserves emoji and supplementary Unicode characters across event boundaries.
+Text input preserves emoji and supplementary Unicode characters across event boundaries. Cancellation stops remaining actions; it does not undo text already entered or work already completed.
+
+## Troubleshooting
+
+| Symptom | What to check |
+| --- | --- |
+| Window Layout opens instead of Quick Menu | Give the two features different activation keys. |
+| Fn also opens emoji | Check the macOS keyboard behavior described in the Fn section above. |
+| A menu opens but its action does not run | Check whether it is a preview, then verify the action's target, parameters, and permissions. Switching apps while the menu is open cancels it. |
+| Capture fails after allowing permission | Check **Input Status and Permissions → Screen Recording**, then follow [permission recovery](installation.en.md#if-permission-is-allowed-but-not-detected). |
+| Actions after a cancelled capture do not run | This is intentional in 0.1.3: the remaining actions in that execution stop. |
+| Fast or slow key sequences are not recognized | Release the first key before the next and adjust the maximum interval. |
+| Trackpad input remains pending | Place two fingers on the selected trackpad, then lift both. Check permissions and the device connection. |
+
+If the problem remains, [report a bug](https://github.com/zamk-DAV/trackpad/issues/new?template=bug_report.yml) with the feature and steps. Attach only diagnostics you have reviewed, if needed.
 
 [Home](../README.en.md) · [Installation](installation.en.md) · [Privacy](../PRIVACY.en.md)

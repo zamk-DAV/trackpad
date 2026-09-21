@@ -4,20 +4,40 @@ title: "[Bug] "
 body:
   - type: markdown
     attributes:
-      value: "한국어·영어 모두 환영합니다. 개인정보, 암호, 설정 파일 전체는 첨부하지 마세요. / Korean and English are welcome. Do not include personal information, passwords, or complete settings files."
+      value: "한국어·영어 모두 환영합니다. 개인정보, 암호, 설정 파일 전체는 첨부하지 마세요. 캡처·Fn 키 문제는 사용법의 문제 해결도 참고하세요. / Korean and English are welcome. Do not include personal information, passwords, or complete settings files. See the user guide for capture and Fn troubleshooting."
+  - type: dropdown
+    id: feature
+    attributes:
+      label: 사용 기능 / Feature
+      options:
+        - 트랙패드 제스처 / Trackpad gestures
+        - 키보드 매크로 / Keyboard macros
+        - 화면 분할 / Window Layout
+        - 퀵 메뉴 / Quick Menu
+        - 화면 캡처·권한 / Capture or permissions
+        - 설치·업데이트 / Installation or updates
+        - 언어·기타 / Language or other
+    validations:
+      required: true
   - type: input
     id: environment
     attributes:
       label: 사용 환경 / Environment
-      description: Mac 모델, macOS 버전·빌드, 앱 버전 / Mac model, macOS version and build, Flicklane version
-      placeholder: "MacBook Air M2 / macOS 26.6.2 (25G83) / Flicklane 0.1.0 (19)"
+      description: Mac 모델, macOS 버전·빌드, 설정에 표시되는 앱 버전 / Mac model, macOS version and build, app version shown in settings
+      placeholder: "MacBook Air M2 / macOS 26.6.2 (25G83) / Flicklane 0.1.3 (22)"
     validations:
       required: true
+  - type: input
+    id: input_device
+    attributes:
+      label: 입력 기기·실행 키 / Input device and activation key
+      description: 트랙패드 문제는 내장·외장 및 연결 방식, 키 문제는 실행 키와 다른 기능에서 같은 키를 쓰는지 알려주세요. / For trackpad issues, specify built-in/external and connection type; for key issues, include the key and whether another feature shares it.
+      placeholder: "내장 트랙패드 / Quick Menu: Fn, Window Layout: Option"
   - type: textarea
     id: steps
     attributes:
       label: 재현 순서 / Steps to reproduce
-      description: 선택한 기능과 입력 순서 / The feature and input sequence you used
+      description: 선택한 동작, 키·터치 순서, 미리보기 또는 실제 실행 여부 / Selected action, key or touch sequence, and whether this was a preview or real execution
     validations:
       required: true
   - type: textarea
@@ -26,3 +46,9 @@ body:
       label: 예상한 동작과 실제 결과 / Expected and actual behavior
     validations:
       required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: 진단 정보 (선택) / Diagnostics (optional)
+      description: 설정 → 진단 정보 미리보기에서 검토한 후 복사하세요. 입력 모니터링·손쉬운 사용·화면 기록 상태가 포함됩니다. / Review and copy through Settings → Preview Diagnostics. Includes Input Monitoring, Accessibility, and Screen Recording states.
+      render: text

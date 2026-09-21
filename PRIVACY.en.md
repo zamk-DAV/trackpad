@@ -19,6 +19,8 @@ Required permissions depend on the features you use. Revoke them in macOS System
 
 Rules and recorded gestures are stored in `~/Library/Application Support/GestureForge/configuration.json`. Up to 10 rotating backups are kept in the same folder. Uninstalling the app does not automatically delete this folder.
 
+Quick Menu layouts, activation keys, item titles and actions, Window Layout settings, and language selection are stored separately in macOS app preferences. The JSON file and rotating backups above do not include these preferences. Replacing the app reuses the existing preferences.
+
 Settings may contain rule names, key combinations, app identifiers, URLs, text, file paths, and commands. Do not put passwords or API keys in action settings.
 
 ## Manual update checks

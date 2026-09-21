@@ -2,6 +2,16 @@ name: 기능 제안 / Feature request
 description: 개선 아이디어를 남겨주세요. / Share an idea for improving Flicklane.
 title: "[Feature] "
 body:
+  - type: dropdown
+    id: feature
+    attributes:
+      label: 관련 기능 / Related feature
+      options:
+        - 트랙패드 제스처 / Trackpad gestures
+        - 키보드 매크로 / Keyboard macros
+        - 화면 분할 / Window Layout
+        - 퀵 메뉴 / Quick Menu
+        - 설정·사용성·기타 / Settings, usability, or other
   - type: textarea
     id: problem
     attributes:
