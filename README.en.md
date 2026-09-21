@@ -8,9 +8,9 @@
 
 **Connect your Mac’s trackpad gestures and keyboard input to the actions you use every day.**
 
-[**Download Flicklane (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.2-beta.1/Flicklane-0.1.2-21-universal.zip) · **0.1.2 Beta 1 · build 21 · Apple silicon + Intel**
+[**Download Flicklane (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.3-beta.1/Flicklane-0.1.3-22-universal.zip) · **0.1.3 Beta 1 · build 22 · Apple silicon + Intel**
 
-[Installation](docs/installation.en.md) · [User guide](docs/usage.en.md) · [Release notes](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.2-beta.1) · [Report an issue](https://github.com/zamk-DAV/trackpad/issues) · [♥ Support](https://buymeacoffee.com/flicklane)
+[Installation](docs/installation.en.md) · [User guide](docs/usage.en.md) · [Release notes](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.3-beta.1) · [Report an issue](https://github.com/zamk-DAV/trackpad/issues) · [♥ Support](https://buymeacoffee.com/flicklane)
 
 Flicklane is a macOS app for recorded gestures, keyboard sequences, shortcuts, and window tiling. This repository hosts downloads and documentation. The application source code is not published here.
 
@@ -38,7 +38,7 @@ Flicklane uses one trackpad at a time, preferring an eligible external Magic Tra
 
 For a new compatibility environment or an external trackpad, connected actions remain inactive during the input check. Failed validation stops input. Trackpad input uses the private MultitouchSupport framework and may need validation again after a macOS update.
 
-[Release artifact checks](https://github.com/zamk-DAV/trackpad/actions/workflows/compatibility.yml) cover checksums, signing, notarization, resources, and executable structure on macOS 14 Apple silicon and macOS 15/26 Apple silicon and Intel. **0.1.2 Beta 1 [passed all five environments](https://github.com/zamk-DAV/trackpad/actions/runs/35557965486).** macOS 14 Intel is outside this CI matrix. These checks do not exercise gestures, permissions, Bluetooth, or wake behavior.
+[Release artifact checks](https://github.com/zamk-DAV/trackpad/actions/workflows/compatibility.yml) cover checksums, signing, notarization, resources, and executable structure on macOS 14 Apple silicon and macOS 15/26 Apple silicon and Intel. **See the workflow above for the 0.1.3 Beta 1 artifact check results.** macOS 14 Intel is outside this CI matrix. These checks do not exercise gestures, permissions, Bluetooth, or wake behavior.
 
 ## Features
 
@@ -48,6 +48,7 @@ For a new compatibility environment or an external trackpad, connected actions r
 | Timing controls | Start with **Fast / Default / Relaxed** for keyboard sequences or **As recorded / A little extra / More extra time** for recorded gestures, then adjust the details. |
 | Keyboard macros | Connect sequences of released keys or modifier-key combinations to actions. |
 | Window tiling | Hold a key and move the pointer to place a window in a half, quarter, or the full desktop area. |
+| Quick Menu | Assign actions to 4, 5, 8, or 9 positions, then open the menu with a key or rule. Fn / 🌐 is available as an activation key. |
 | Multiple actions | Chain opening apps or websites, managing windows, and entering keys or text. |
 | Per-app rules | Choose target apps, test recognition and execution, then enable the rule. |
 | Settings and help | Choose a language, check for updates manually, and copy diagnostics for a support report. |

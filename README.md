@@ -8,9 +8,9 @@
 
 **Mac의 트랙패드 제스처와 키보드 입력에 원하는 동작을 연결하세요.**
 
-[**Flicklane 다운로드 (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.2-beta.1/Flicklane-0.1.2-21-universal.zip) · **0.1.2 Beta 1 · 빌드 21 · Apple silicon + Intel**
+[**Flicklane 다운로드 (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.3-beta.1/Flicklane-0.1.3-22-universal.zip) · **0.1.3 Beta 1 · 빌드 22 · Apple silicon + Intel**
 
-[설치 안내](docs/installation.md) · [사용법](docs/usage.md) · [릴리스 안내](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.2-beta.1) · [오류 제보](https://github.com/zamk-DAV/trackpad/issues) · [♥ 후원](https://buymeacoffee.com/flicklane)
+[설치 안내](docs/installation.md) · [사용법](docs/usage.md) · [릴리스 안내](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.3-beta.1) · [오류 제보](https://github.com/zamk-DAV/trackpad/issues) · [♥ 후원](https://buymeacoffee.com/flicklane)
 
 Flicklane(플릭레인)은 직접 녹화한 제스처, 키 입력 순서, 단축키로 반복 작업을 줄이는 macOS 앱입니다. 이 저장소에는 앱 다운로드와 안내 문서만 공개하며, 앱 소스 코드는 공개하지 않습니다.
 
@@ -38,7 +38,7 @@ Flicklane(플릭레인)은 직접 녹화한 제스처, 키 입력 순서, 단축
 
 새 호환 환경과 외장 트랙패드의 입력 확인 중에는 연결된 동작이 실행되지 않습니다. 검사에 실패하면 입력을 중단합니다. 트랙패드 입력은 비공개 MultitouchSupport 프레임워크를 사용하므로 macOS 업데이트 후 재검증이 필요할 수 있습니다.
 
-[릴리스 파일 자동 검사](https://github.com/zamk-DAV/trackpad/actions/workflows/compatibility.yml)는 macOS 14의 Apple silicon, macOS 15·26의 Apple silicon과 Intel에서 체크섬·앱 서명·공증·리소스·실행 파일 구조를 확인합니다. **0.1.2 Beta 1은 [5개 환경 모두 통과](https://github.com/zamk-DAV/trackpad/actions/runs/35557965486)했습니다.** macOS 14 Intel은 이 CI에 포함되지 않습니다. 실제 제스처·권한·블루투스·잠자기 복귀를 검사하는 작업은 아닙니다.
+[릴리스 파일 자동 검사](https://github.com/zamk-DAV/trackpad/actions/workflows/compatibility.yml)는 macOS 14의 Apple silicon, macOS 15·26의 Apple silicon과 Intel에서 체크섬·앱 서명·공증·리소스·실행 파일 구조를 확인합니다. **0.1.3 Beta 1의 배포 파일 검사 결과는 위 자동 검사 페이지에서 확인할 수 있습니다.** macOS 14 Intel은 이 CI에 포함되지 않습니다. 실제 제스처·권한·블루투스·잠자기 복귀를 검사하는 작업은 아닙니다.
 
 ## 주요 기능
 
@@ -48,6 +48,7 @@ Flicklane(플릭레인)은 직접 녹화한 제스처, 키 입력 순서, 단축
 | 시간 설정 | 키보드는 **빠르게 / 기본 / 여유롭게**, 녹화 제스처는 **녹화 기준 / 여유 조금 / 여유 많이**로 시작하고 세부 값을 조절합니다. |
 | 키보드 매크로 | 키를 눌렀다 떼는 순서 또는 보조 키 조합에 동작을 연결합니다. |
 | 화면 분할 | 키를 누른 채 포인터를 움직여 창을 절반·사분면·최대화로 배치합니다. |
+| 퀵 메뉴 | 4·5·8·9개 위치에 동작을 배치하고 키 또는 규칙으로 엽니다. Fn / 🌐 키도 선택할 수 있습니다. |
 | 여러 동작 연결 | 앱·웹사이트 열기, 창 제어, 키·텍스트 입력 등을 순서대로 실행합니다. |
 | 앱별 규칙 | 적용할 앱을 선택하고 인식과 실행을 테스트한 뒤 규칙을 켭니다. |
 | 설정과 도움 | 언어 선택, 수동 업데이트 확인, 문의용 진단 정보 복사를 제공합니다. |

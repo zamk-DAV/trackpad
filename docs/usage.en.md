@@ -2,7 +2,7 @@
 
 [한국어](usage.md) · **English**
 
-This guide covers Flicklane 0.1.1 Beta 1. Start with the [installation guide](installation.en.md) to check compatibility and permissions.
+This guide covers Flicklane 0.1.3 Beta 1. Start with the [installation guide](installation.en.md) to check compatibility and permissions.
 
 ## Trackpad gestures
 
@@ -46,6 +46,12 @@ The maximum interval for a sequence is adjustable from 0.01 to 5 seconds. It is 
 
 Key input also reaches the app you are using. Choose combinations that do not conflict with your normal typing.
 
+## Quick Menu
+
+Choose 4, 5, 8, or 9 positions in the Quick Menu tab and assign an action to each position. Enable and choose a dedicated key, or add the Quick Menu action to a rule. Fn / 🌐 is supported as an activation key.
+
+For a dedicated-key menu, hold the key, move the pointer, and release to select. For a rule-opened menu, click an item. Escape or switching apps cancels the menu. Window tiling takes priority when both features use the same key, so select different activation keys.
+
 ## Window tiling
 
 Enable window tiling and choose its trigger key. Select the window, hold the key, move the pointer, then release the key.
@@ -84,5 +90,11 @@ The Flicklane menu bar icon contains three items:
 - **♥ Support:** Open the [support page](https://buymeacoffee.com/flicklane) in your default browser.
 - **⚙ Settings:** Open the main app window, or return to it if it is already open.
 - **⏻ Quit:** Close the app.
+
+## Cancellation and text input
+
+Cancelling a region/window capture with Escape, or declining an action confirmation, stops the remaining actions in that execution. Completed actions are not undone. Explicit cancellation takes precedence over the continue-after-error setting.
+
+Text input preserves emoji and supplementary Unicode characters across event boundaries.
 
 [Home](../README.en.md) · [Installation](installation.en.md) · [Privacy](../PRIVACY.en.md)

@@ -2,7 +2,7 @@
 
 **한국어** · [English](installation.en.md)
 
-[**Flicklane 0.1.2 Beta 1 다운로드**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.2-beta.1/Flicklane-0.1.2-21-universal.zip) · 빌드 21 · Apple silicon + Intel
+[**Flicklane 0.1.3 Beta 1 다운로드**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.3-beta.1/Flicklane-0.1.3-22-universal.zip) · 빌드 22 · Apple silicon + Intel
 
 ## 세 단계로 설치하기
 
@@ -60,7 +60,7 @@ Apple silicon의 빌드 `25F84`, `25G83`가 기존 로컬 실기기 검증 범�
 <details>
 <summary>선택 사항: 다운로드 체크섬 확인</summary>
 
-[같은 릴리스](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.2-beta.1)의 ZIP과 `SHA256SUMS`를 같은 폴더에 받은 뒤 터미널에서 실행하세요.
+[같은 릴리스](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.3-beta.1)의 ZIP과 `SHA256SUMS`를 같은 폴더에 받은 뒤 터미널에서 실행하세요.
 
 ```sh
 shasum -a 256 -c SHA256SUMS

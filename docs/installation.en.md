@@ -2,7 +2,7 @@
 
 [한국어](installation.md) · **English**
 
-[**Download Flicklane 0.1.2 Beta 1**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.2-beta.1/Flicklane-0.1.2-21-universal.zip) · build 21 · Apple silicon + Intel
+[**Download Flicklane 0.1.3 Beta 1**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.3-beta.1/Flicklane-0.1.3-22-universal.zip) · build 22 · Apple silicon + Intel
 
 ## Install in three steps
 
@@ -60,7 +60,7 @@ Rules and recorded gestures retain their existing storage location. Earlier beta
 <details>
 <summary>Optional: verify the download checksum</summary>
 
-Download the ZIP and `SHA256SUMS` from the [same release](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.2-beta.1) into one folder, then run in Terminal:
+Download the ZIP and `SHA256SUMS` from the [same release](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.3-beta.1) into one folder, then run in Terminal:
 
 ```sh
 shasum -a 256 -c SHA256SUMS

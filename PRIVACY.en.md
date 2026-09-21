@@ -36,7 +36,7 @@ Opening a release page or downloading a file creates the usual browser and GitHu
 - App version and build.
 - macOS version/build, CPU architecture, and Mac model identifier.
 - App language.
-- Input Monitoring and Accessibility permission states, and trackpad input status.
+- Input Monitoring, Accessibility, and Screen Recording permission states, and trackpad input status.
 
 It excludes rule names and contents, key input history, URLs, personal file paths, commands, and raw detailed error messages. Review the preview and select **Copy Diagnostics** to put it on the clipboard. Nothing is sent automatically; you choose whether to paste it into a report.
 
