@@ -2,7 +2,7 @@
 
 [한국어](installation.md) · **English**
 
-[**Download Flicklane 0.1.1 Beta 1**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.1-beta.1/Flicklane-0.1.1-20-universal.zip) · build 20 · Apple silicon + Intel
+[**Download Flicklane 0.1.2 Beta 1**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.2-beta.1/Flicklane-0.1.2-21-universal.zip) · build 21 · Apple silicon + Intel
 
 ## Install in three steps
 
@@ -30,9 +30,16 @@ The input check completes after two-finger contact and lifting all fingers. Conn
 
 - **Input Monitoring:** Detect trackpad and keyboard input.
 - **Accessibility:** Window, keyboard, and mouse actions.
-- **Screen Recording / Automation:** When needed for screenshots or control of another app you configure.
+- **Screen Recording:** Screenshots. View the current grant and open System Settings from **Input Status and Permissions → Screen Recording** in Flicklane.
+- **Automation:** Actions that control another app you configure.
 
 See the [privacy guide](../PRIVACY.en.md) for details.
+
+### Set up capture permission
+
+Select **Open Screen Recording Settings** in Flicklane. Depending on macOS, the pane is named **Screen Recording** or **Screen & System Audio Recording**. If Flicklane is missing, press `+`, add `/Applications/Flicklane.app`, allow access, and reopen the app.
+
+Region and window selection, and the system capture toolbar, no longer stop after 30 seconds. Pressing Esc during region or window capture is reported as cancellation.
 
 ### If permission is allowed but not detected
 
@@ -53,7 +60,7 @@ Rules and recorded gestures retain their existing storage location. Earlier beta
 <details>
 <summary>Optional: verify the download checksum</summary>
 
-Download the ZIP and `SHA256SUMS` from the [same release](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.1-beta.1) into one folder, then run in Terminal:
+Download the ZIP and `SHA256SUMS` from the [same release](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.2-beta.1) into one folder, then run in Terminal:
 
 ```sh
 shasum -a 256 -c SHA256SUMS

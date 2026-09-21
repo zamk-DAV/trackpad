@@ -2,7 +2,7 @@
 
 **한국어** · [English](installation.en.md)
 
-[**Flicklane 0.1.1 Beta 1 다운로드**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.1-beta.1/Flicklane-0.1.1-20-universal.zip) · 빌드 20 · Apple silicon + Intel
+[**Flicklane 0.1.2 Beta 1 다운로드**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.2-beta.1/Flicklane-0.1.2-21-universal.zip) · 빌드 21 · Apple silicon + Intel
 
 ## 세 단계로 설치하기
 
@@ -30,9 +30,16 @@ Apple silicon의 빌드 `25F84`, `25G83`가 기존 로컬 실기기 검증 범�
 
 - **입력 모니터링:** 트랙패드·키보드 입력 감지
 - **손쉬운 사용:** 창·키보드·마우스 관련 동작
-- **화면 기록 / 자동화:** 화면 캡처 또는 설정한 다른 앱 제어에 필요한 경우
+- **화면 기록:** 화면 캡처. 앱의 **입력 상태 및 권한 → 화면 기록**에서 현재 허용 상태를 확인하고 시스템 설정으로 이동할 수 있습니다.
+- **자동화:** 설정한 다른 앱을 제어하는 동작에 필요한 경우
 
 권한별 용도는 [개인정보 안내](../PRIVACY.md)에 정리했습니다.
+
+### 캡처 권한 설정
+
+앱에서 **화면 기록 설정 열기**를 누릅니다. macOS 버전에 따라 **화면 기록** 또는 **화면 및 시스템 오디오 녹음**으로 표시됩니다. 목록에 Flicklane이 없으면 `+`를 눌러 `/Applications/Flicklane.app`을 추가하고 허용한 뒤 앱을 다시 여세요.
+
+영역·창 선택과 시스템 캡처 도구는 30초가 지나도 종료되지 않습니다. 선택 영역·창 캡처에서 Esc를 누르면 취소로 표시됩니다.
 
 ### 허용했는데 인식되지 않을 때
 
@@ -53,7 +60,7 @@ Apple silicon의 빌드 `25F84`, `25G83`가 기존 로컬 실기기 검증 범�
 <details>
 <summary>선택 사항: 다운로드 체크섬 확인</summary>
 
-[같은 릴리스](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.1-beta.1)의 ZIP과 `SHA256SUMS`를 같은 폴더에 받은 뒤 터미널에서 실행하세요.
+[같은 릴리스](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.2-beta.1)의 ZIP과 `SHA256SUMS`를 같은 폴더에 받은 뒤 터미널에서 실행하세요.
 
 ```sh
 shasum -a 256 -c SHA256SUMS

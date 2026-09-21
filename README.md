@@ -8,9 +8,9 @@
 
 **Mac의 트랙패드 제스처와 키보드 입력에 원하는 동작을 연결하세요.**
 
-[**Flicklane 다운로드 (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.1-beta.1/Flicklane-0.1.1-20-universal.zip) · **0.1.1 Beta 1 · 빌드 20 · Apple silicon + Intel**
+[**Flicklane 다운로드 (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.2-beta.1/Flicklane-0.1.2-21-universal.zip) · **0.1.2 Beta 1 · 빌드 21 · Apple silicon + Intel**
 
-[설치 안내](docs/installation.md) · [사용법](docs/usage.md) · [릴리스 안내](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.1-beta.1) · [오류 제보](https://github.com/zamk-DAV/trackpad/issues) · [♥ 후원](https://buymeacoffee.com/flicklane)
+[설치 안내](docs/installation.md) · [사용법](docs/usage.md) · [릴리스 안내](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.2-beta.1) · [오류 제보](https://github.com/zamk-DAV/trackpad/issues) · [♥ 후원](https://buymeacoffee.com/flicklane)
 
 Flicklane(플릭레인)은 직접 녹화한 제스처, 키 입력 순서, 단축키로 반복 작업을 줄이는 macOS 앱입니다. 이 저장소에는 앱 다운로드와 안내 문서만 공개하며, 앱 소스 코드는 공개하지 않습니다.
 

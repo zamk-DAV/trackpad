@@ -8,9 +8,9 @@
 
 **Connect your Mac’s trackpad gestures and keyboard input to the actions you use every day.**
 
-[**Download Flicklane (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.1-beta.1/Flicklane-0.1.1-20-universal.zip) · **0.1.1 Beta 1 · build 20 · Apple silicon + Intel**
+[**Download Flicklane (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.2-beta.1/Flicklane-0.1.2-21-universal.zip) · **0.1.2 Beta 1 · build 21 · Apple silicon + Intel**
 
-[Installation](docs/installation.en.md) · [User guide](docs/usage.en.md) · [Release notes](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.1-beta.1) · [Report an issue](https://github.com/zamk-DAV/trackpad/issues) · [♥ Support](https://buymeacoffee.com/flicklane)
+[Installation](docs/installation.en.md) · [User guide](docs/usage.en.md) · [Release notes](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.2-beta.1) · [Report an issue](https://github.com/zamk-DAV/trackpad/issues) · [♥ Support](https://buymeacoffee.com/flicklane)
 
 Flicklane is a macOS app for recorded gestures, keyboard sequences, shortcuts, and window tiling. This repository hosts downloads and documentation. The application source code is not published here.
 
