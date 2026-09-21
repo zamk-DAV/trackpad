@@ -8,57 +8,60 @@
 
 **Connect your Mac’s trackpad gestures and keyboard input to the actions you use every day.**
 
-Flicklane is a macOS app for custom recorded gestures, keyboard sequences, shortcuts, and window tiling.
+[**Download Flicklane (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.1-beta.1/Flicklane-0.1.1-20-universal.zip) · **0.1.1 Beta 1 · build 20 · Apple silicon + Intel**
 
-This repository hosts **downloads, documentation, and feedback**. The application source code is not published here.
+[Installation](docs/installation.en.md) · [User guide](docs/usage.en.md) · [Release notes](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.1-beta.1) · [Report an issue](https://github.com/zamk-DAV/trackpad/issues) · [♥ Support](https://buymeacoffee.com/flicklane)
 
-[User guide](docs/usage.en.md) · [Installation](docs/installation.en.md) · [Releases](https://github.com/zamk-DAV/trackpad/releases) · [Report an issue](https://github.com/zamk-DAV/trackpad/issues) · [♥ Support](https://buymeacoffee.com/flicklane)
+Flicklane is a macOS app for recorded gestures, keyboard sequences, shortcuts, and window tiling. This repository hosts downloads and documentation. The application source code is not published here.
 
-## What you can do
+![Flicklane rules and features](assets/flicklane-overview.png)
 
-| Feature | How it works |
-| --- | --- |
-| Trackpad gestures | Choose a built-in gesture or record your own sequence of touches, taps, and movements. |
-| Adjustable timing | Allow more or less time between touches and adjust the permitted duration of each movement. |
-| Keyboard macros | Trigger actions with sequential key presses or a modifier-key combination. |
-| Window tiling | Hold a chosen key and move the pointer to place a window in a half, a quarter, or the full desktop area. |
-| Multiple actions | Chain actions such as opening apps or websites, managing windows, and entering keys or text. |
-| Per-rule settings | Choose the target apps, test recognition and execution, then enable the rule. |
-| Languages | Follow the system language or select Korean, English, Japanese, Simplified Chinese, or Traditional Chinese. |
-| Menu bar access | ♥ Support, ⚙ Settings, and ⏻ Quit. Settings brings up the main app window. |
+*Actual app UI with example settings, input monitoring and action execution disabled. These images do not demonstrate physical trackpad testing.*
 
-## Download
+## Get started in three steps
 
-**First public beta: 0.1.0 Beta 1 · build 19 · Apple silicon**
-
-[**Download Flicklane (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.0-beta.1/Flicklane-0.1.0-19-arm64.zip) · [Release notes and checksum](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.0-beta.1)
-
-The app is Developer ID-signed and notarized by Apple. The app extracted from the final ZIP passed signature, notarization-ticket, and Gatekeeper checks. **This is an early beta; validation on other Mac models is still in progress.** Check compatibility, then follow the [installation guide](docs/installation.en.md).
-
-Select **Watch → Custom → Releases** on GitHub for new release notifications.
+1. Download and unzip the app above.
+2. Move `Flicklane.app` to **Applications** and open it. Quit the existing app before updating.
+3. Grant the permissions you need and create your first rule. If prompted to check input, **place two fingers on the trackpad briefly, then lift both fingers.**
 
 ## Compatibility
 
-- Intended for the **built-in trackpad on Apple silicon Macs**.
-- External Magic Trackpads and Intel Macs are not currently supported.
-- Contact input is currently enabled only on macOS builds **`25F84` and `25G83`**. This does not mean every macOS version or Mac model has been tested.
-- Trackpad input uses the private MultitouchSupport framework and needs validation after macOS updates. Flicklane is not distributed through the Mac App Store.
+| Environment | Support and validation |
+| --- | --- |
+| Apple silicon · built-in trackpad · macOS builds `25F84`, `25G83` | Existing local hardware validation covers these builds. This does not cover every Mac model. |
+| Apple silicon · built-in trackpad · other builds of macOS 14 / 15 / 26 | Compatibility targets. Live contact input is checked at startup. Physical behavior across all Mac and OS combinations is unverified. |
+| Intel · built-in trackpad · macOS 14 / 15 / 26 | The universal app includes an Intel executable and checks live input at startup. Physical Intel hardware behavior is unverified. |
+| External Apple Magic Trackpad · macOS 14 / 15 / 26 | Enabled after matching contact and click input to the same trackpad and passing startup input validation. Physical external trackpad behavior is unverified. |
+| Other macOS versions | Trackpad contact input remains disabled. |
 
-## Get started
+Flicklane uses one trackpad at a time, preferring an eligible external Magic Trackpad and otherwise using the built-in trackpad. It checks devices again when connections change. Ordinary mice and Magic Mouse are excluded from trackpad input. Older and newer models must pass the same device and live-input checks; a model name alone does not establish compatibility. Pressure-based gestures require pressure data and are unavailable on trackpads without Force Touch.
 
-1. Create a new rule in the trackpad or keyboard tab.
-2. Select or record the input that should trigger it.
-3. Add actions and choose the apps where the rule applies.
-4. Test recognition and actions, then enable the rule.
+For a new compatibility environment or an external trackpad, connected actions remain inactive during the input check. Failed validation stops input. Trackpad input uses the private MultitouchSupport framework and may need validation again after a macOS update.
 
-See the [user guide](docs/usage.en.md) for recording and timing details.
+[Release artifact checks](https://github.com/zamk-DAV/trackpad/actions/workflows/compatibility.yml) cover checksums, signing, notarization, resources, and executable structure on macOS 14 Apple silicon and macOS 15/26 Apple silicon and Intel. macOS 14 Intel is outside this CI matrix. These checks do not exercise gestures, permissions, Bluetooth, or wake behavior; results are available in Actions.
 
-To change the language, use the gear button in the main app window and select **Language**. The default follows your system settings; changes apply after restarting. The **Settings** item in the menu bar opens the main app window.
+## Features
 
-## Feedback and support
+| Feature | How it works |
+| --- | --- |
+| Trackpad gestures | Choose a built-in gesture or record your own touches, taps, and movements. |
+| Timing controls | Start with **Fast / Default / Relaxed** for keyboard sequences or **As recorded / A little extra / More extra time** for recorded gestures, then adjust the details. |
+| Keyboard macros | Connect sequences of released keys or modifier-key combinations to actions. |
+| Window tiling | Hold a key and move the pointer to place a window in a half, quarter, or the full desktop area. |
+| Multiple actions | Chain opening apps or websites, managing windows, and entering keys or text. |
+| Per-app rules | Choose target apps, test recognition and execution, then enable the rule. |
+| Settings and help | Choose a language, check for updates manually, and copy diagnostics for a support report. |
 
-Send bug reports and feature ideas through [Issues](https://github.com/zamk-DAV/trackpad/issues). For bugs, include your Mac model, macOS build, app version, and steps to reproduce. Korean and English reports are welcome.
+![Using Flicklane](assets/flicklane-demo.gif)
 
-If you would like to support development, visit [Buy Me a Coffee](https://buymeacoffee.com/flicklane). Support is optional. Read the [support page](SPONSORING.md) for more details.
+*An 11-second loop: rules → Fast and Relaxed keyboard timing → permission guidance. It uses example settings without live input or action execution.*
 
-Input recognition and rule storage run locally on your Mac. See the [privacy and permissions guide](PRIVACY.en.md) for details, or use the [Korean and English introduction](docs/share.md) to tell someone about Flicklane.
+Flicklane supports Korean, English, Japanese, Simplified Chinese, and Traditional Chinese. See the [user guide](docs/usage.en.md) for recording and timing, or [installation](docs/installation.en.md) to repair permissions.
+
+## Updates and feedback
+
+Select **Check for Updates** in app settings to look for new GitHub releases. Download and replace the app yourself. You can also select **Watch → Custom → Releases** on GitHub for release notifications.
+
+Report problems through [Issues](https://github.com/zamk-DAV/trackpad/issues), including steps to reproduce. **Preview Diagnostics → Copy Diagnostics** in settings copies a limited set of technical details. Input recognition and rule storage run locally. The [privacy guide](PRIVACY.en.md) explains update requests and diagnostic contents.
+
+[♥ Supporting development](https://buymeacoffee.com/flicklane) is optional. [Support details](SPONSORING.md) · [Share Flicklane](docs/share.md)

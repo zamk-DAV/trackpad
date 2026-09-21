@@ -1,0 +1,210 @@
+name: Release artifact compatibility
+
+"on":
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Published Flicklane release tag (for example, v0.1.1-beta.1)"
+        required: true
+        type: string
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+# Standard public-repository labels checked on 2026-09-21:
+# https://docs.github.com/en/actions/reference/runners/github-hosted-runners
+# https://github.com/actions/runner-images#available-images
+# macOS 14 Intel has no standard runner; macos-14-large requires a larger runner.
+# macOS 14 runners are deprecated and scheduled for removal on 2026-11-02:
+# https://github.com/actions/runner-images/issues/13518
+jobs:
+  artifact:
+    name: macOS ${{ matrix.os }} / ${{ matrix.arch }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-14
+            os: "14"
+            arch: arm64
+          - runner: macos-15
+            os: "15"
+            arch: arm64
+          - runner: macos-15-intel
+            os: "15"
+            arch: x86_64
+          - runner: macos-26
+            os: "26"
+            arch: arm64
+          - runner: macos-26-intel
+            os: "26"
+            arch: x86_64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: bash
+    env:
+      RELEASE_TAG: ${{ inputs.release_tag || github.event.release.tag_name }}
+      EXPECTED_OS: ${{ matrix.os }}
+      EXPECTED_ARCH: ${{ matrix.arch }}
+      ARTIFACT_DIR: ${{ runner.temp }}/flicklane-release
+
+    steps:
+      # No source checkout, app launch, permission request, or input capture.
+      - name: Verify the runner identity
+        run: |
+          set -euo pipefail
+          actual_os="$(sw_vers -productVersion)"
+          actual_arch="$(uname -m)"
+          [[ "${actual_os%%.*}" == "$EXPECTED_OS" ]]
+          [[ "$actual_arch" == "$EXPECTED_ARCH" ]]
+          mkdir -p "$ARTIFACT_DIR"
+          {
+            printf '## Flicklane release artifact checks\n\n'
+            printf 'Runner: macOS %s (%s), %s\n\n' "$actual_os" "$(sw_vers -buildVersion)" "$actual_arch"
+            printf 'Scope: downloaded bundle, signature, notarization, Gatekeeper, resources, and Mach-O metadata.\n\n'
+            printf 'The app is not launched. These checks do not test permissions, gestures, trackpad models, or physical input.\n'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Download the published universal release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-beta\.[1-9][0-9]*)?$ ]] || {
+            echo 'Expected a version tag such as v0.1.1-beta.1.' >&2
+            exit 1
+          }
+          gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
+            --json tagName,isDraft,assets > "$ARTIFACT_DIR/release.json"
+          archive_name="$(python3 - <<'PY'
+          import json, os, pathlib, re
+          root = pathlib.Path(os.environ['ARTIFACT_DIR'])
+          release = json.loads((root / 'release.json').read_text())
+          tag = os.environ['RELEASE_TAG']
+          assert release['tagName'] == tag and release['isDraft'] is False, 'Release is not published'
+          version = tag.removeprefix('v').split('-beta.', 1)[0]
+          names = [asset['name'] for asset in release['assets']]
+          pattern = rf'Flicklane-{re.escape(version)}-[1-9][0-9]*-universal\.zip'
+          archives = [name for name in names if re.fullmatch(pattern, name)]
+          assert len(archives) == 1, 'Expected exactly one universal ZIP for this version'
+          assert names.count('SHA256SUMS') == 1, 'Missing or ambiguous checksum file'
+          print(archives[0])
+          PY
+          )"
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
+            --pattern "$archive_name" --pattern SHA256SUMS --dir "$ARTIFACT_DIR"
+          printf 'ARCHIVE_NAME=%s\n' "$archive_name" >> "$GITHUB_ENV"
+
+      - name: Verify checksum and extract the app
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os, pathlib, re, zipfile
+          root = pathlib.Path(os.environ['ARTIFACT_DIR'])
+          name = os.environ['ARCHIVE_NAME']
+          lines = (root / 'SHA256SUMS').read_text().splitlines()
+          assert len(lines) == 1 and re.fullmatch(r'[0-9a-fA-F]{64} [ *]' + re.escape(name), lines[0]), 'Unexpected checksum manifest'
+          with zipfile.ZipFile(root / name) as archive:
+              for entry in archive.infolist():
+                  path = pathlib.PurePosixPath(entry.filename)
+                  assert not path.is_absolute() and '..' not in path.parts, 'Unsafe ZIP path'
+                  assert (entry.external_attr >> 16) & 0o170000 != 0o120000, 'Symlinked ZIP entries are not allowed'
+                  assert path.parts and path.parts[0] in ('Flicklane.app', '__MACOSX'), 'Unexpected ZIP contents'
+          PY
+          (cd "$ARTIFACT_DIR" && shasum -a 256 -c SHA256SUMS)
+          ditto -x -k "$ARTIFACT_DIR/$ARCHIVE_NAME" "$ARTIFACT_DIR/unpacked"
+          app="$ARTIFACT_DIR/unpacked/Flicklane.app"
+          [[ -d "$app" && ! -L "$app" ]]
+          [[ -z "$(find "$app" -type l -print -quit)" ]]
+          [[ -x "$app/Contents/MacOS/GestureForge" ]]
+
+      - name: Verify bundle metadata and localizations
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os, pathlib, plistlib, re, subprocess
+          root = pathlib.Path(os.environ['ARTIFACT_DIR']) / 'unpacked/Flicklane.app/Contents'
+          with (root / 'Info.plist').open('rb') as file:
+              info = plistlib.load(file)
+          assert info['CFBundleIdentifier'] == 'dev.dohyun.GestureForge'
+          assert info['CFBundleExecutable'] == 'GestureForge'
+          assert info['LSMinimumSystemVersion'] == '14.0'
+          assert info['FlicklaneReleaseTag'] == os.environ['RELEASE_TAG']
+          assert info['CFBundleShortVersionString'] == os.environ['RELEASE_TAG'].removeprefix('v').split('-beta.', 1)[0]
+          assert re.fullmatch(r'[1-9][0-9]*', info['CFBundleVersion'])
+          assert os.environ['ARCHIVE_NAME'] == f"Flicklane-{info['CFBundleShortVersionString']}-{info['CFBundleVersion']}-universal.zip"
+          resources = root / 'Resources'
+          assert info['CFBundleIconFile'] == 'Flicklane.icns'
+          for name in ('Flicklane.icns', 'FlicklaneMenuBarTemplate.png'):
+              assert (resources / name).stat().st_size > 0, f'Missing {name}'
+          bundle = resources / 'GestureForge_FlicklaneLocalization.bundle'
+          language_tables = []
+          for language in ('ko', 'en', 'zh-Hans', 'zh-Hant', 'ja'):
+              candidates = [bundle / 'Contents/Resources' / f'{language}.lproj/Localizable.strings',
+                            bundle / f'{language}.lproj/Localizable.strings']
+              table = next((path for path in candidates if path.is_file()), None)
+              assert table and table.stat().st_size > 0, f'Missing {language} strings'
+              subprocess.run(['plutil', '-lint', str(table)], check=True)
+              table_data = subprocess.check_output(['plutil', '-convert', 'xml1', '-o', '-', str(table)])
+              language_tables.append(plistlib.loads(table_data))
+              purpose = resources / f'{language}.lproj/InfoPlist.strings'
+              assert purpose.is_file() and purpose.stat().st_size > 0, f'Missing {language} permission strings'
+              subprocess.run(['plutil', '-lint', str(purpose)], check=True)
+          assert all(set(table) == set(language_tables[0]) for table in language_tables), 'Localization key coverage differs'
+          print(f"Validated Flicklane {info['CFBundleShortVersionString']} ({info['CFBundleVersion']}) and five localizations")
+          PY
+
+      - name: Verify universal executable and Mach-O metadata
+        run: |
+          set -euo pipefail
+          binary="$ARTIFACT_DIR/unpacked/Flicklane.app/Contents/MacOS/GestureForge"
+          slices="$(lipo -archs "$binary")"
+          [[ "$slices" == 'arm64 x86_64' || "$slices" == 'x86_64 arm64' ]]
+          export FLICKLANE_BINARY="$binary"
+          python3 - <<'PY'
+          import os, re, subprocess
+          binary = os.environ['FLICKLANE_BINARY']
+          for arch in ('arm64', 'x86_64'):
+              commands = subprocess.check_output(['otool', '-arch', arch, '-l', binary], text=True)
+              blocks = commands.split('Load command ')
+              builds = [block for block in blocks if re.search(r'^\s*cmd LC_BUILD_VERSION$', block, re.M)]
+              assert len(builds) == 1, f'{arch}: missing or ambiguous deployment metadata'
+              block = builds[0]
+              assert re.search(r'^\s*platform (?:1|MACOS)\s*$', block, re.M), f'{arch}: expected macOS platform'
+              assert re.search(r'^\s*minos 14\.0(?:\.0)?\s*$', block, re.M), f'{arch}: expected macOS 14 minimum'
+          result = subprocess.run(['/usr/bin/dyld_info', '-arch', os.environ['EXPECTED_ARCH'], '-validate_only', binary],
+                                  capture_output=True, text=True)
+          expected_header = f"{binary} [{os.environ['EXPECTED_ARCH']}]:"
+          diagnostics = [line.strip() for line in result.stdout.splitlines() if line.strip() and line.strip() != expected_header]
+          assert result.returncode == 0 and not diagnostics and not result.stderr.strip(), result.stdout + result.stderr
+          print('Both CPU slices and the native slice Mach-O structure passed static validation')
+          PY
+
+      - name: Verify signature, notarization ticket, and Gatekeeper
+        run: |
+          set -euo pipefail
+          app="$ARTIFACT_DIR/unpacked/Flicklane.app"
+          codesign --verify --deep --strict --verbose=2 "$app"
+          details="$(codesign -dvvv "$app" 2>&1)"
+          printf '%s\n' "$details"
+          grep -Fxq 'Identifier=dev.dohyun.GestureForge' <<< "$details"
+          grep -Fxq 'TeamIdentifier=F9GBH7PW8M' <<< "$details"
+          grep -Eq '^Authority=Developer ID Application: .+ \(F9GBH7PW8M\)$' <<< "$details"
+          grep -Eq '^CodeDirectory .*flags=.*runtime' <<< "$details"
+          grep -Eq '^Timestamp=.+$' <<< "$details"
+          xcrun stapler validate "$app"
+          spctl --assess --verbose=2 --type execute "$app"
+
+      - name: Record the result and its scope
+        if: always()
+        env:
+          RESULT: ${{ job.status }}
+        run: |
+          {
+            printf '\nResult: **%s**\n\n' "$RESULT"
+            printf 'This run is artifact validation on a hosted macOS image. It is not a GUI launch, physical trackpad, pressure, Bluetooth, permission, or wake/reconnect test.\n'
+          } >> "$GITHUB_STEP_SUMMARY"
