@@ -50,13 +50,14 @@ jobs:
       RELEASE_TAG: ${{ inputs.release_tag || github.event.release.tag_name }}
       EXPECTED_OS: ${{ matrix.os }}
       EXPECTED_ARCH: ${{ matrix.arch }}
-      ARTIFACT_DIR: ${{ runner.temp }}/flicklane-release
 
     steps:
       # No source checkout, app launch, permission request, or input capture.
       - name: Verify the runner identity
         run: |
           set -euo pipefail
+          export ARTIFACT_DIR="$RUNNER_TEMP/flicklane-release"
+          printf 'ARTIFACT_DIR=%s\n' "$ARTIFACT_DIR" >> "$GITHUB_ENV"
           actual_os="$(sw_vers -productVersion)"
           actual_arch="$(uname -m)"
           [[ "${actual_os%%.*}" == "$EXPECTED_OS" ]]
