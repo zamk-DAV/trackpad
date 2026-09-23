@@ -2,7 +2,7 @@
 
 [한국어](installation.md) · **English**
 
-[**Download Flicklane 0.1.3 Beta 1**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.3-beta.1/Flicklane-0.1.3-22-universal.zip) · build 22 · Apple silicon + Intel
+[**Download Flicklane 0.1.4 Beta 1**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.4-beta.1/Flicklane-0.1.4-23-universal.zip) · build 23 · Apple silicon + Intel
 
 This release is Developer ID signed and Apple notarized. [Changelog](../CHANGELOG.md)
 
@@ -53,7 +53,7 @@ You do not need to delete settings or backups. Do not run the former GestureForg
 
 Select **Check for Updates** in settings to query GitHub releases. If a new version is available, download it from the linked release page, quit Flicklane, and replace the app. Flicklane does not install updates automatically or upload your settings.
 
-Quit with **⏻ Quit** in the menu bar, replace the app, and reopen it from **Applications**. Confirm that **Current Version** in settings is `0.1.3 (22)`. Avoid running an older copy from Downloads at the same time.
+Quit with **⏻ Quit** in the menu bar, replace the app, and reopen it from **Applications**. Confirm that **Current Version** in settings is `0.1.4 (23)`. Avoid running an older copy from Downloads at the same time.
 
 Replacing the app does not reset rules, recordings, Quick Menu, Window Layout, or language settings. Rules and app preferences use separate storage, so `configuration.json` alone is not a complete settings backup. [Settings storage](../PRIVACY.en.md#local-settings)
 
@@ -62,7 +62,7 @@ Rules and recorded gestures retain their existing storage location. Earlier beta
 <details>
 <summary>Optional: verify the download checksum</summary>
 
-Download the ZIP and `SHA256SUMS` from the [same release](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.3-beta.1) into one folder, then run in Terminal:
+Download the ZIP and `SHA256SUMS` from the [same release](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.4-beta.1) into one folder, then run in Terminal:
 
 ```sh
 shasum -a 256 -c SHA256SUMS

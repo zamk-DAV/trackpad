@@ -10,7 +10,7 @@
 
 Flicklane connects everyday Mac actions to the way you work. Record a gesture or choose a key sequence to copy, paste, capture the screen, open an app, and more.
 
-[**Download Flicklane 0.1.3 Beta 1 (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.3-beta.1/Flicklane-0.1.3-22-universal.zip) · **build 22 · Apple silicon + Intel**
+[**Download Flicklane 0.1.4 Beta 1 (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.4-beta.1/Flicklane-0.1.4-23-universal.zip) · **build 23 · Apple silicon + Intel**
 
 Developer ID signed and Apple notarized · Targets macOS 14 / 15 / 26 · Korean, English, Japanese, Simplified Chinese, and Traditional Chinese
 
@@ -18,21 +18,21 @@ Developer ID signed and Apple notarized · Targets macOS 14 / 15 / 26 · Korean,
 
 ## What is new in this release
 
-- **Quick Menu:** Assign actions to 4, 5, 8, or 9 positions. Hold a key, move the pointer, and release to select. Menus opened by a rule use clicks.
-- **Fn / 🌐 activation:** Available for Quick Menu and Window Layout. Use different activation keys for the two features.
-- **Capture cancellation:** Escape during capture stops subsequent actions, fixing the case where cancelling a capture could paste older clipboard content.
-- **Text and diagnostics:** Fixed emoji and supplementary characters in long text input, and added Screen Recording permission status to diagnostics.
+- **Link saved macros to Quick Menu:** Assign a rule from Keyboard Macros to a slot and run its saved action sequence. Editing the original updates the menu as well.
+- **Press keys or shortcuts:** Record the keys to send, from single keys such as `V` or `[` to combinations such as `⌘C` or `⌘⇧S`.
+- **Type text:** Configure the trigger and output separately, for example `Shift+A → youtube.com`. Text is typed at the current insertion point.
+- **Input reliability:** Text output now pairs key-down and key-up events and clears inherited modifier flags.
 
-[Full 0.1.3 Beta 1 release notes and verification](docs/releases/0.1.3-beta.1.md)
+[Full 0.1.4 Beta 1 release notes and verification](docs/releases/0.1.4-beta.1.md)
 
 ## Four ways to work
 
 | Feature | How to use it |
 | --- | --- |
 | [Trackpad gestures](docs/usage.en.md#trackpad-gestures) | Choose a built-in gesture or record touches, taps, and movements. Adjust the time between touches and movement duration separately. |
-| [Keyboard macros](docs/usage.en.md#keyboard-macros) | Use a released-key sequence, such as Q then W, or a combination such as Shift + 1. Set the maximum interval for a sequence from 0.01 to 5 seconds. |
+| [Keyboard macros](docs/usage.en.md#keyboard-macros) | Use a released-key sequence, such as Q then W, or a combination such as Shift + 1. Send keys, shortcuts, or typed text; set a sequence interval from 0.01 to 5 seconds. |
 | [Window Layout](docs/usage.en.md#window-tiling) | Hold a key and move the pointer to place the active window in a half, quarter, or the full desktop area. |
-| [Quick Menu](docs/usage.en.md#quick-menu) | Choose frequently used actions beside the cursor. Customize each position's title and action, and preview without executing actions. |
+| [Quick Menu](docs/usage.en.md#quick-menu) | Choose frequently used actions beside the cursor. Link each position to a single action or a saved keyboard macro, and preview without executing actions. |
 
 Chain multiple actions and choose which apps a rule applies to. Start with **Fast / Default / Relaxed** keyboard timing or **As recorded / A little extra / More extra time** gesture timing, then fine-tune it.
 
@@ -58,7 +58,7 @@ Flicklane uses one trackpad at a time, preferring an eligible external Magic Tra
 
 For a new compatibility environment or an external trackpad, connected actions remain inactive during the input check. Failed validation stops input. Trackpad input uses the private MultitouchSupport framework and may need validation again after a macOS update.
 
-[Release artifact checks](https://github.com/zamk-DAV/trackpad/actions/workflows/compatibility.yml) cover checksums, signing, notarization, resources, and executable structure on macOS 14 Apple silicon and macOS 15/26 Apple silicon and Intel. **0.1.3 Beta 1 [passed all five environments](https://github.com/zamk-DAV/trackpad/actions/runs/35592903489).** macOS 14 Intel is outside this CI matrix. These checks do not exercise gestures, permissions, Bluetooth, or wake behavior.
+[Release artifact checks](https://github.com/zamk-DAV/trackpad/actions/workflows/compatibility.yml) cover checksums, signing, notarization, resources, and executable structure on macOS 14 Apple silicon and macOS 15/26 Apple silicon and Intel. **Results for 0.1.4 Beta 1 will be added here after publication.** macOS 14 Intel is outside this CI matrix. These checks do not exercise gestures, permissions, Bluetooth, or wake behavior.
 
 ## Updates and help
 

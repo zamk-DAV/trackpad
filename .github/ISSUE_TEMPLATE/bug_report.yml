@@ -24,7 +24,7 @@ body:
     attributes:
       label: 사용 환경 / Environment
       description: Mac 모델, macOS 버전·빌드, 설정에 표시되는 앱 버전 / Mac model, macOS version and build, app version shown in settings
-      placeholder: "MacBook Air M2 / macOS 26.6.2 (25G83) / Flicklane 0.1.3 (22)"
+      placeholder: "MacBook Air M2 / macOS 26.6.2 (25G83) / Flicklane 0.1.4 (23)"
     validations:
       required: true
   - type: input
