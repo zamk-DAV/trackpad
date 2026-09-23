@@ -2,13 +2,13 @@
 
 [한국어](usage.md) · **English**
 
-This guide covers **Flicklane 0.1.4 Beta 1 · build 23**. Start with the [installation guide](installation.en.md) to check compatibility and permissions.
+This guide covers **Flicklane 0.1.5 Beta 1 · build 24**. Start with the [installation guide](installation.en.md) to check compatibility and permissions.
 
-[Trackpad](#trackpad-gestures) · [Keyboard](#keyboard-macros) · [Quick Menu](#quick-menu) · [Window Layout](#window-tiling) · [Troubleshooting](#troubleshooting)
+[Gesture](#gestures) · [Keyboard](#keyboard-macros) · [Quick Menu](#quick-menu) · [Window Layout](#window-tiling) · [Mouse Sensitivity](#mouse-sensitivity) · [Troubleshooting](#troubleshooting)
 
-## Trackpad gestures
+## Gestures
 
-Create a rule in the trackpad tab. Choose a built-in gesture or open the custom gesture recorder.
+Create a rule in the **Gesture** tab. Choose a built-in gesture or open the custom gesture recorder.
 
 Input comes from one selected trackpad at a time. An eligible external Magic Trackpad takes priority; otherwise Flicklane uses the built-in trackpad. If asked to validate input after changing connections, briefly place two fingers on the selected trackpad and lift both. Connected actions remain inactive during this check.
 
@@ -102,13 +102,30 @@ Fn is different from a function key such as F1. macOS may also open emoji or cha
 
 ## Window tiling
 
-In **Window Layout**, enable the feature and choose Fn / 🌐, a modifier, or another activation key. Select the window, hold the key, move the pointer, then release the key.
+Enable **Window Layout** and choose an activation key. Select the target window, hold the key, move toward a position in the circular menu, then release. Fn / 🌐, modifiers, and a custom key are supported.
 
-- Center: maximize within the current desktop.
-- Up, down, left, or right: half of the screen.
-- Diagonals: a quarter of the screen.
+The default center maximizes; cardinal directions use halves and diagonals use quarters. Click a position in the settings preview and change its layout to configure all nine slots. Turn off **Show action names in menu** for an icon-focused view; the selected action and apply/restore hint remain in the center. Appearance follows macOS light/dark mode.
 
-Starting a click, drag, or scroll cancels the selection. An app’s minimum window size may affect the final dimensions.
+Options include halves, a centered half, quarters, thirds and two-thirds, four columns, six cells, maximize, almost maximize, maximize height, center/edge/corner movement, larger/smaller, and restore. A position can also be left unassigned.
+
+**Repeat the same placement on the same window to restore its earlier position and size.** For example, run Left Half twice to return to the original window frame. Larger and Smaller adjust the size each time; use **Restore** to undo those changes.
+
+The settings preview does not move real windows. Starting a click, drag, or scroll cancels the live menu. An app's minimum window size can affect the final dimensions.
+
+## Mouse Sensitivity
+
+Open **Mouse Sensitivity** in the main window's top navigation bar. Defaults preserve scrolling and leave pointer customization off. Separate mouse and trackpad profiles apply to connected devices of that type, including devices connected later.
+
+1. Choose **Mouse** or **Trackpad**, then select **Follow macOS / Natural scrolling / Standard scrolling** scrolling.
+2. Enable **Automatically reverse scrolling for external devices** to reverse identified external mice and trackpads relative to macOS. It overrides the profile's manual direction without reversing twice. The built-in trackpad retains its own setting.
+3. Enable pointer customization to adjust speed and acceleration or turn acceleration off. Supported linear mode keeps speed adjustable with acceleration off. Legacy drivers use a fixed speed with acceleration off; the app explains this limitation.
+4. Reset the profile or turn customization off to restore values changed by Flicklane. Normal quit also attempts restoration; after an interrupted exit, the next launch attempts recovery of remaining changes.
+
+Unidentified devices and scrolling events are passed through without guessing their origin. Available settings depend on the driver and macOS. Using another utility to adjust the same settings can change the result.
+
+## Hands-on guides
+
+Open **How to Use** in Gesture, Keyboard Macros, Window Layout, or Quick Menu to try the examples directly. Practice does not modify saved rules or move another app's windows. Configure permissions and activation keys separately before using the real feature.
 
 ## Test and manage rules
 
@@ -152,6 +169,7 @@ Text input preserves emoji and supplementary Unicode characters across event bou
 | Capture fails after allowing permission | Check **Input Status and Permissions → Screen Recording**, then follow [permission recovery](installation.en.md#if-permission-is-allowed-but-not-detected). |
 | Actions after a cancelled capture do not run | This behavior was introduced in 0.1.3: the remaining actions in that execution stop. |
 | Fast or slow key sequences are not recognized | Release the first key before the next and adjust the maximum interval. |
+| External scroll reversal has no effect | Check devices and permissions in Mouse Sensitivity. Events whose origin cannot be identified are unchanged. |
 | Trackpad input remains pending | Place two fingers on the selected trackpad, then lift both. Check permissions and the device connection. |
 
 If the problem remains, [report a bug](https://github.com/zamk-DAV/trackpad/issues/new?template=bug_report.yml) with the feature and steps. Attach only diagnostics you have reviewed, if needed.

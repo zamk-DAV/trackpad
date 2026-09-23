@@ -1,4 +1,18 @@
-# 이전 화면 자료 · Earlier UI media
+# 화면 자료 · UI previews
+
+## 0.1.5 원형 메뉴 · Circular menu
+
+새 화면 분할 메뉴의 네이티브 렌더링입니다. 예시 설정으로 만든 미리보기이며 실제 창 이동이나 물리 입력을 촬영한 자료는 아닙니다.
+
+Native renders of the new Window Layout menu using example settings. They show appearance, not a recording of live window movement or physical input.
+
+| 밝은 모드 · 한국어 / Light, Korean | 어두운 모드 · 영어 / Dark, English |
+| --- | --- |
+| ![한국어 원형 메뉴](../assets/flicklane-015-window-ko-light.png) | ![English circular menu](../assets/flicklane-015-window-en-dark.png) |
+
+[동작 이름을 숨긴 화면 / Hidden action labels](../assets/flicklane-015-window-icons.png)
+
+## 이전 화면 · Earlier captures
 
 아래 자료는 **0.1.3 배포 전에 촬영한 화면**입니다. 퀵 메뉴가 없는 세 탭 구성과 이전 버전 표기가 포함되어 있어 현재 버전의 대표 화면으로 사용하지 않습니다. 현재 기능과 조작 방법은 [한국어 사용법](usage.md)과 [English guide](usage.en.md)를 참고하세요.
 

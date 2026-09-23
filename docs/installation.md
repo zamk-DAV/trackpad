@@ -2,7 +2,7 @@
 
 **한국어** · [English](installation.en.md)
 
-[**Flicklane 0.1.4 Beta 1 다운로드**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.4-beta.1/Flicklane-0.1.4-23-universal.zip) · 빌드 23 · Apple silicon + Intel
+[**Flicklane 0.1.5 Beta 1 다운로드**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.5-beta.1/Flicklane-0.1.5-24-universal.zip) · 빌드 24 · Apple silicon + Intel
 
 이 배포 파일은 Developer ID 서명과 Apple 공증을 완료했습니다. [변경 내역](../CHANGELOG.md)
 
@@ -26,7 +26,7 @@ Apple silicon의 빌드 `25F84`, `25G83`가 기존 로컬 실기기 검증 범�
 
 ## 필요한 권한
 
-- **입력 모니터링:** 트랙패드·키보드 입력 감지
+- **입력 모니터링:** 트랙패드·키보드 입력 감지와 스크롤 설정
 - **손쉬운 사용:** 창·키보드·마우스 관련 동작
 - **화면 기록:** 화면 캡처. 앱의 **입력 상태 및 권한 → 화면 기록**에서 현재 허용 상태를 확인하고 시스템 설정으로 이동할 수 있습니다.
 - **자동화:** 설정한 다른 앱을 제어하는 동작에 필요한 경우
@@ -53,16 +53,16 @@ Apple silicon의 빌드 `25F84`, `25G83`가 기존 로컬 실기기 검증 범�
 
 설정의 **업데이트 확인**을 누르면 GitHub 릴리스를 조회합니다. 새 버전이 있으면 안내된 릴리스 페이지에서 다운로드하고 기존 앱을 종료한 뒤 교체하세요. 앱이 자동 설치하거나 설정을 업로드하지 않습니다.
 
-메뉴 막대의 **⏻ 종료**로 앱을 끝낸 뒤 새 앱을 교체하고, **응용 프로그램**에서 다시 실행하세요. 설정의 **현재 버전**이 `0.1.4 (23)`인지 확인합니다. 다운로드 폴더의 이전 복사본을 함께 실행하지 마세요.
+메뉴 막대의 **⏻ 종료**로 앱을 끝낸 뒤 새 앱을 교체하고, **응용 프로그램**에서 다시 실행하세요. 설정의 **현재 버전**이 `0.1.5 (24)`인지 확인합니다. 다운로드 폴더의 이전 복사본을 함께 실행하지 마세요.
 
-규칙·녹화 제스처·퀵 메뉴·화면 분할·언어 설정은 앱 교체만으로 초기화되지 않습니다. 규칙 파일과 앱 환경설정은 별도로 저장되므로 `configuration.json` 하나가 전체 설정 백업은 아닙니다. [설정 저장 범위](../PRIVACY.md#로컬-설정)
+규칙·녹화 제스처·퀵 메뉴·화면 분할·마우스 감도·언어 설정은 앱 교체만으로 초기화되지 않습니다. 규칙 파일과 앱 환경설정은 별도로 저장되므로 `configuration.json` 하나가 전체 설정 백업은 아닙니다. [설정 저장 범위](../PRIVACY.md#로컬-설정)
 
 규칙과 녹화 제스처는 기존 저장 위치를 유지합니다. 이전 베타는 [전체 릴리스](https://github.com/zamk-DAV/trackpad/releases)에서 확인할 수 있습니다.
 
 <details>
 <summary>선택 사항: 다운로드 체크섬 확인</summary>
 
-[같은 릴리스](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.4-beta.1)의 ZIP과 `SHA256SUMS`를 같은 폴더에 받은 뒤 터미널에서 실행하세요.
+[같은 릴리스](https://github.com/zamk-DAV/trackpad/releases/tag/v0.1.5-beta.1)의 ZIP과 `SHA256SUMS`를 같은 폴더에 받은 뒤 터미널에서 실행하세요.
 
 ```sh
 shasum -a 256 -c SHA256SUMS

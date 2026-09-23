@@ -4,7 +4,7 @@ name: Release artifact compatibility
   workflow_dispatch:
     inputs:
       release_tag:
-        description: "Published Flicklane release tag (for example, v0.1.4-beta.1)"
+        description: "Published Flicklane release tag (for example, v0.1.5-beta.1)"
         required: true
         type: string
   release:
@@ -76,7 +76,7 @@ jobs:
         run: |
           set -euo pipefail
           [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-beta\.[1-9][0-9]*)?$ ]] || {
-            echo 'Expected a version tag such as v0.1.4-beta.1.' >&2
+            echo 'Expected a version tag such as v0.1.5-beta.1.' >&2
             exit 1
           }
           gh api "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" > "$ARTIFACT_DIR/release.json"
@@ -156,7 +156,10 @@ jobs:
           assert os.environ['ARCHIVE_NAME'] == f"Flicklane-{info['CFBundleShortVersionString']}-{info['CFBundleVersion']}-universal.zip"
           resources = root / 'Resources'
           assert info['CFBundleIconFile'] == 'Flicklane.icns'
-          for name in ('Flicklane.icns', 'FlicklaneMenuBarTemplate.png'):
+          required_resources = ['Flicklane.icns', 'FlicklaneMenuBarTemplate.png']
+          if tuple(map(int, info['CFBundleShortVersionString'].split('.'))) >= (0, 1, 5):
+              required_resources.append('ThirdPartyNotices.txt')
+          for name in required_resources:
               assert (resources / name).stat().st_size > 0, f'Missing {name}'
           bundle = resources / 'GestureForge_FlicklaneLocalization.bundle'
           language_tables = []
