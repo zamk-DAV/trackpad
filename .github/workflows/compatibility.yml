@@ -79,25 +79,41 @@ jobs:
             echo 'Expected a version tag such as v0.1.4-beta.1.' >&2
             exit 1
           }
-          gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
-            --json tagName,isDraft,assets > "$ARTIFACT_DIR/release.json"
-          archive_name="$(python3 - <<'PY'
+          gh api "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" > "$ARTIFACT_DIR/release.json"
+          release_id="$(python3 - <<'PYMETA'
+          import json, os, pathlib
+          release = json.loads((pathlib.Path(os.environ['ARTIFACT_DIR']) / 'release.json').read_text())
+          assert release['tag_name'] == os.environ['RELEASE_TAG'] and release['draft'] is False, 'Release is not published'
+          assert isinstance(release['id'], int) and release['id'] > 0
+          print(release['id'])
+          PYMETA
+          )"
+          # The release response can temporarily omit nested assets after publication.
+          # Query the dedicated, paginated asset list instead.
+          gh api --paginate --slurp "repos/$GITHUB_REPOSITORY/releases/$release_id/assets" \
+            > "$ARTIFACT_DIR/assets.json"
+          archive_name="$(python3 - <<'PYASSETS'
           import json, os, pathlib, re
           root = pathlib.Path(os.environ['ARTIFACT_DIR'])
-          release = json.loads((root / 'release.json').read_text())
-          tag = os.environ['RELEASE_TAG']
-          assert release['tagName'] == tag and release['isDraft'] is False, 'Release is not published'
-          version = tag.removeprefix('v').split('-beta.', 1)[0]
-          names = [asset['name'] for asset in release['assets']]
+          pages = json.loads((root / 'assets.json').read_text())
+          assets = [asset for page in pages for asset in page]
+          assert all(asset['state'] == 'uploaded' for asset in assets), 'Assets are not ready'
+          version = os.environ['RELEASE_TAG'].removeprefix('v').split('-beta.', 1)[0]
+          names = [asset['name'] for asset in assets]
           pattern = rf'Flicklane-{re.escape(version)}-[1-9][0-9]*-universal\.zip'
           archives = [name for name in names if re.fullmatch(pattern, name)]
           assert len(archives) == 1, 'Expected exactly one universal ZIP for this version'
           assert names.count('SHA256SUMS') == 1, 'Missing or ambiguous checksum file'
           print(archives[0])
-          PY
+          PYASSETS
           )"
-          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
-            --pattern "$archive_name" --pattern SHA256SUMS --dir "$ARTIFACT_DIR"
+          # Download from the same public URLs as users. Avoid a second metadata lookup
+          # through gh release download.
+          for asset in "$archive_name" SHA256SUMS; do
+            curl --fail --location --retry 3 --connect-timeout 20 --max-time 180 \
+              "https://github.com/$GITHUB_REPOSITORY/releases/download/$RELEASE_TAG/$asset" \
+              --output "$ARTIFACT_DIR/$asset"
+          done
           printf 'ARCHIVE_NAME=%s\n' "$archive_name" >> "$GITHUB_ENV"
 
       - name: Verify checksum and extract the app
