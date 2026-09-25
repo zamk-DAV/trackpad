@@ -10,7 +10,7 @@
 
 Flicklane connects everyday Mac actions to the way you work. Record a gesture or choose a key sequence to copy, paste, capture the screen, open an app, and more.
 
-[**Download Flicklane 0.1.5 Beta 1 (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.5-beta.1/Flicklane-0.1.5-24-universal.zip) · **build 24 · Apple silicon + Intel**
+[**Download Flicklane 0.1.6 Beta 1 (.zip)**](https://github.com/zamk-DAV/trackpad/releases/download/v0.1.6-beta.1/Flicklane-0.1.6-25-universal.zip) · **build 25 · Apple silicon + Intel**
 
 Developer ID signed and Apple notarized · Targets macOS 14 / 15 / 26 · Korean, English, Japanese, Simplified Chinese, and Traditional Chinese
 
@@ -18,12 +18,12 @@ Developer ID signed and Apple notarized · Targets macOS 14 / 15 / 26 · Korean,
 
 ## What is new in this release
 
-- **New circular Window Layout menu:** Larger layout icons, clear selection highlighting, and central action/restore hints. Assign layouts to nine positions and show or hide action names.
-- **More layouts and restoration:** Choose halves, quarters, thirds, four columns, six cells, and more. Repeat the same placement to restore the previous position and size.
-- **Mouse Sensitivity:** Set mouse and trackpad scroll directions separately, automatically reverse external devices, and adjust pointer speed and acceleration or turn acceleration off.
-- **Hands-on guides:** Try gestures, keyboard input, window layouts, and Quick Menu inside interactive practice screens. New features and guidance support all five languages.
+- **Dock and USB receiver discovery:** Fixed devices connected after app launch being missed. Automatic discovery and manual refresh now use a fresh device list.
+- **Verified pointer settings:** Unchanged settings are no longer treated as successfully applied. Failed changes trigger an attempt to restore earlier values.
+- **Clear trackpad limits:** Devices without verifiable per-device settings show “Not applied” with disabled controls and a shortcut to macOS pointer settings. **This update does not implement direct sensitivity control for the affected built-in trackpad.**
+- **Acceleration-off guidance:** Speed controls are disabled for legacy modes that ignore the multiplier, with the affected devices named. New messages support all five languages.
 
-[Full 0.1.5 Beta 1 release notes and verification](docs/releases/0.1.5-beta.1.md)
+[Full 0.1.6 Beta 1 release notes and verification](docs/releases/0.1.6-beta.1.md)
 
 <p align="center"><img src="assets/flicklane-015-window-en-dark.png" width="380" alt="0.1.5 circular Window Layout menu · native rendering with example bindings."></p>
 
@@ -37,7 +37,7 @@ Developer ID signed and Apple notarized · Targets macOS 14 / 15 / 26 · Korean,
 | [Keyboard macros](docs/usage.en.md#keyboard-macros) | Use a released-key sequence, such as Q then W, or a combination such as Shift + 1. Send keys, shortcuts, or typed text; set a sequence interval from 0.01 to 5 seconds. |
 | [Window Layout](docs/usage.en.md#window-tiling) | Hold a key and move the pointer to place the active window. Customize nine circular-menu positions and repeat a placement to restore. |
 | [Quick Menu](docs/usage.en.md#quick-menu) | Choose frequently used actions beside the cursor. Link each position to a single action or a saved keyboard macro, and preview without executing actions. |
-| [Mouse Sensitivity](docs/usage.en.md#mouse-sensitivity) | Set mouse/trackpad scroll directions, external-device reversal, pointer speed, and acceleration. |
+| [Mouse Sensitivity](docs/usage.en.md#mouse-sensitivity) | Set mouse/trackpad scroll directions and external-device reversal. Adjust pointer speed and acceleration on devices that support it. |
 
 Chain multiple actions and choose which apps a rule applies to. Start with **Fast / Default / Relaxed** keyboard timing or **As recorded / A little extra / More extra time** gesture timing, then fine-tune it.
 
@@ -63,7 +63,7 @@ Flicklane uses one trackpad at a time, preferring an eligible external Magic Tra
 
 For a new compatibility environment or an external trackpad, connected actions remain inactive during the input check. Failed validation stops input. Trackpad input uses the private MultitouchSupport framework and may need validation again after a macOS update.
 
-[Release artifact checks](https://github.com/zamk-DAV/trackpad/actions/workflows/compatibility.yml) cover checksums, signing, notarization, resources, and executable structure on macOS 14 Apple silicon and macOS 15/26 Apple silicon and Intel. **0.1.5 Beta 1 [passed all five environments](https://github.com/zamk-DAV/trackpad/actions/runs/35934131854).** macOS 14 Intel is outside this CI matrix. These checks do not exercise gestures, permissions, Bluetooth, or wake behavior.
+[Release artifact checks](https://github.com/zamk-DAV/trackpad/actions/workflows/compatibility.yml) cover checksums, signing, notarization, resources, and executable structure on macOS 14 Apple silicon and macOS 15/26 Apple silicon and Intel. **See the [0.1.6 Beta 1 release notes](docs/releases/0.1.6-beta.1.md#검증-결과--verification) for this release’s check results.** macOS 14 Intel is outside this CI matrix. These checks do not exercise gestures, permissions, Bluetooth, or wake behavior.
 
 ## Updates and help
 

@@ -2,7 +2,7 @@
 
 [한국어](usage.md) · **English**
 
-This guide covers **Flicklane 0.1.5 Beta 1 · build 24**. Start with the [installation guide](installation.en.md) to check compatibility and permissions.
+This guide covers **Flicklane 0.1.6 Beta 1 · build 25**. Start with the [installation guide](installation.en.md) to check compatibility and permissions.
 
 [Gesture](#gestures) · [Keyboard](#keyboard-macros) · [Quick Menu](#quick-menu) · [Window Layout](#window-tiling) · [Mouse Sensitivity](#mouse-sensitivity) · [Troubleshooting](#troubleshooting)
 
@@ -118,8 +118,11 @@ Open **Mouse Sensitivity** in the main window's top navigation bar. Defaults pre
 
 1. Choose **Mouse** or **Trackpad**, then select **Follow macOS / Natural scrolling / Standard scrolling** scrolling.
 2. Enable **Automatically reverse scrolling for external devices** to reverse identified external mice and trackpads relative to macOS. It overrides the profile's manual direction without reversing twice. The built-in trackpad retains its own setting.
-3. Enable pointer customization to adjust speed and acceleration or turn acceleration off. Supported linear mode keeps speed adjustable with acceleration off. Legacy drivers use a fixed speed with acceleration off; the app explains this limitation.
-4. Reset the profile or turn customization off to restore values changed by Flicklane. Normal quit also attempts restoration; after an interrupted exit, the next launch attempts recovery of remaining changes.
+3. Enable **Customize pointer settings** on supported devices to adjust speed/acceleration or disable acceleration. Supported linear mode keeps speed adjustable. Legacy acceleration-off modes ignore the speed multiplier, so the speed control is disabled.
+4. If **Not applied** appears, choose **Open macOS pointer settings** to adjust system tracking speed. Direct control does not apply to the built-in Apple trackpad tested locally; this release does not fix that limitation. Scroll direction is a separate feature.
+5. Reset the profile or turn customization off to restore values changed by Flicklane. Normal quit also attempts restoration; after an interrupted exit, the next launch attempts recovery of remaining changes.
+
+New devices connected through a dock or USB receiver are discovered automatically. Use **Refresh devices** if the list has not updated.
 
 Unidentified devices and scrolling events are passed through without guessing their origin. Available settings depend on the driver and macOS. Using another utility to adjust the same settings can change the result.
 
@@ -169,7 +172,8 @@ Text input preserves emoji and supplementary Unicode characters across event bou
 | Capture fails after allowing permission | Check **Input Status and Permissions → Screen Recording**, then follow [permission recovery](installation.en.md#if-permission-is-allowed-but-not-detected). |
 | Actions after a cancelled capture do not run | This behavior was introduced in 0.1.3: the remaining actions in that execution stop. |
 | Fast or slow key sequences are not recognized | Release the first key before the next and adjust the maximum interval. |
-| External scroll reversal has no effect | Check devices and permissions in Mouse Sensitivity. Events whose origin cannot be identified are unchanged. |
+| Changing speed has no effect | Check that pointer customization is enabled. For “Not applied”, use macOS pointer settings. Legacy acceleration-off modes ignore speed adjustments. |
+| External scroll reversal has no effect | Update to 0.1.6, then refresh devices and check the device list and permissions in Mouse Sensitivity. Events whose origin cannot be identified are unchanged. |
 | Trackpad input remains pending | Place two fingers on the selected trackpad, then lift both. Check permissions and the device connection. |
 
 If the problem remains, [report a bug](https://github.com/zamk-DAV/trackpad/issues/new?template=bug_report.yml) with the feature and steps. Attach only diagnostics you have reviewed, if needed.

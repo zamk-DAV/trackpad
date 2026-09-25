@@ -1,5 +1,9 @@
 # 화면 자료 · UI previews
 
+0.1.6은 장치 감지와 포인터 적용 안내를 수정한 버전입니다. 아래 원형 메뉴 자료는 0.1.5에서 촬영했으며 0.1.6에서도 같은 디자인을 사용합니다. 포인터 감도 적용을 증명하는 화면은 아닙니다.
+
+0.1.6 updates device discovery and pointer-setting status. The circular menu below was rendered in 0.1.5 and retains the same design in 0.1.6; it does not demonstrate working pointer sensitivity.
+
 ## 0.1.5 원형 메뉴 · Circular menu
 
 새 화면 분할 메뉴의 네이티브 렌더링입니다. 예시 설정으로 만든 미리보기이며 실제 창 이동이나 물리 입력을 촬영한 자료는 아닙니다.

@@ -25,14 +25,14 @@ body:
     attributes:
       label: 사용 환경 / Environment
       description: Mac 모델, macOS 버전·빌드, 설정에 표시되는 앱 버전 / Mac model, macOS version and build, app version shown in settings
-      placeholder: "MacBook Air M2 / macOS 26.6.2 (25G83) / Flicklane 0.1.5 (24)"
+      placeholder: "MacBook Air M2 / macOS 26.6.2 (25G83) / Flicklane 0.1.6 (25)"
     validations:
       required: true
   - type: input
     id: input_device
     attributes:
       label: 입력 기기·실행 키 / Input device and activation key
-      description: 마우스·트랙패드 문제는 기기명, 내장·외장 및 연결 방식, 키 문제는 실행 키와 다른 기능에서 같은 키를 쓰는지 알려주세요. / For mouse/trackpad issues, specify the model, built-in/external and connection type; for key issues, include the key and whether another feature shares it.
+      description: 마우스·트랙패드 문제는 기기명, 내장·외장 및 독·수신기 연결 여부와 적용 안 됨 표시, 키 문제는 실행 키와 다른 기능에서 같은 키를 쓰는지 알려주세요. / For mouse/trackpad issues, specify the model, built-in/external, dock/receiver connection, and any Not applied message; for key issues, include the key and whether another feature shares it.
       placeholder: "내장 트랙패드 / Quick Menu: Fn, Window Layout: Option"
   - type: textarea
     id: steps
