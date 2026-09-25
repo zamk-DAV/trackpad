@@ -63,7 +63,7 @@ Flicklane uses one trackpad at a time, preferring an eligible external Magic Tra
 
 For a new compatibility environment or an external trackpad, connected actions remain inactive during the input check. Failed validation stops input. Trackpad input uses the private MultitouchSupport framework and may need validation again after a macOS update.
 
-[Release artifact checks](https://github.com/zamk-DAV/trackpad/actions/workflows/compatibility.yml) cover checksums, signing, notarization, resources, and executable structure on macOS 14 Apple silicon and macOS 15/26 Apple silicon and Intel. **See the [0.1.6 Beta 1 release notes](docs/releases/0.1.6-beta.1.md#검증-결과--verification) for this release’s check results.** macOS 14 Intel is outside this CI matrix. These checks do not exercise gestures, permissions, Bluetooth, or wake behavior.
+[Release artifact checks](https://github.com/zamk-DAV/trackpad/actions/workflows/compatibility.yml) cover checksums, signing, notarization, resources, and executable structure on macOS 14 Apple silicon and macOS 15/26 Apple silicon and Intel. **0.1.6 Beta 1 [passed all five environments](https://github.com/zamk-DAV/trackpad/actions/runs/36134078734).** macOS 14 Intel is outside this CI matrix. These checks do not exercise gestures, permissions, Bluetooth, or wake behavior.
 
 ## Updates and help
 

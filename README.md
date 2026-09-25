@@ -63,7 +63,7 @@ Developer ID 서명 및 Apple 공증 완료 · macOS 14 / 15 / 26 대상 · 한�
 
 새 호환 환경과 외장 트랙패드의 입력 확인 중에는 연결된 동작이 실행되지 않습니다. 검사에 실패하면 입력을 중단합니다. 트랙패드 입력은 비공개 MultitouchSupport 프레임워크를 사용하므로 macOS 업데이트 후 재검증이 필요할 수 있습니다.
 
-[릴리스 파일 자동 검사](https://github.com/zamk-DAV/trackpad/actions/workflows/compatibility.yml)는 macOS 14의 Apple silicon, macOS 15·26의 Apple silicon과 Intel에서 체크섬·앱 서명·공증·리소스·실행 파일 구조를 확인합니다. **0.1.6 Beta 1의 검사 결과는 [릴리스 노트](docs/releases/0.1.6-beta.1.md#검증-결과--verification)에서 확인할 수 있습니다.** macOS 14 Intel은 이 CI에 포함되지 않습니다. 실제 제스처·권한·블루투스·잠자기 복귀를 검사하는 작업은 아닙니다.
+[릴리스 파일 자동 검사](https://github.com/zamk-DAV/trackpad/actions/workflows/compatibility.yml)는 macOS 14의 Apple silicon, macOS 15·26의 Apple silicon과 Intel에서 체크섬·앱 서명·공증·리소스·실행 파일 구조를 확인합니다. **0.1.6 Beta 1은 [5개 환경 모두 통과](https://github.com/zamk-DAV/trackpad/actions/runs/36134078734)했습니다.** macOS 14 Intel은 이 CI에 포함되지 않습니다. 실제 제스처·권한·블루투스·잠자기 복귀를 검사하는 작업은 아닙니다.
 
 ## 업데이트와 문의
 
